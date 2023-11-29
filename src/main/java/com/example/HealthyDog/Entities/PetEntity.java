@@ -4,12 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
+@Getter @Setter @NoArgsConstructor
 public class PetEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long pet_id;
     private long user_id;
     private String pet_type;
@@ -19,8 +23,6 @@ public class PetEntity {
     private int pet_age;
     private String pet_illness;
     private int pet_price_range;
-
-    protected PetEntity(){}
 
     public PetEntity(long pet_id, long user_id, String pet_type, String pet_name, String pet_activity, double pet_weight, int pet_age, String pet_illness, int pet_price_range) {
         this.pet_id = pet_id;
