@@ -10,6 +10,9 @@ Web Application for proper dogs nutrition.
 also add an option to enter the food you want to give to the dog - the application will answer whether it is possible or not.  
 Need to create a database with different types of food, according to their calorie content and price, and add prohibited and permitted types of food for dogs
 
+Project management tool Trello:
+https://trello.com/b/kD24T0pM/animal-nutrition-webapp
+
 REQUIREMENTS:
 
 Base
