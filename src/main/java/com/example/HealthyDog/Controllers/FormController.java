@@ -14,9 +14,18 @@ public class FormController {
         return "chooseAnimal";
     }
 
+    @GetMapping("/")
+    public String chooseSomething() {
+        return "chooseAnimal";
+    }
+
     @PostMapping("/process-animal")
     @ResponseBody
     public String processAnimal(@RequestParam("animal") String animal) {
         return "Your choice: " + animal;
     }
+
+
+
+
 }
