@@ -1,12 +1,12 @@
-package com.example.HealthyDog;
+package com.example.HealthyDog.Entities;
 
-public class Food {
+public class FoodEntity {
     private String name;
     private double weight;
     private int dailyPortion;
 
 
-    public Food(String name, double weight, int dailyPortion) {
+    public FoodEntity(String name, double weight, int dailyPortion) {
         this.name = name;
         this.weight = weight;
         this.dailyPortion = dailyPortion;

@@ -25,7 +25,4 @@ public class FormController {
         return "Your choice: " + animal;
     }
 
-
-
-
 }
