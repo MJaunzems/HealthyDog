@@ -14,4 +14,5 @@ HealthyDogApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HealthyDogApplication.class, args);}
 
+
 }
