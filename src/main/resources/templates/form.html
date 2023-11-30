@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<h1>Form</h1>
+
+<form th:action=@{/Calculations}" method="post">
+    <label for="activity">Activity:</label><br>
+    <select name="activity" id="activity">
+        <option value="typical">Typical</option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+        <option value="very_active">Very Active</option>
+    </select>
+    <label for="weight">Weight:</label><br>
+    <input type="number" id="weight" name="weight">
+    <label for="age">Weight:</label><br>
+    <input type="number" id="age" name="age">
+
+
+
+</form>
+</body>
+</html>
