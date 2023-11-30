@@ -21,8 +21,11 @@ input[type="number"]::-webkit-outer-spin-button {
 <form th:action="@{/foodCalc}" method="post">
     <label for="activity">Activity:</label><br>
     <select name="activity" id="activity">
-        <option value="active">Active</option>
-        <option value="inactive">Inactive</option>
+        <option value="minimal_active">Minimal activity (or old)</option>
+        <option value="low_active">Low activity</option>
+        <option value="medium_active">Medium activity</option>
+        <option value="high_active">High activity</option>
+        <option value="very_high_active">Very high activity</option>
     </select><br>
     <label for="weight" >Weight:</label><br>
     <input type="number" id="weight" name="weight" placeholder="0.00"><br>
