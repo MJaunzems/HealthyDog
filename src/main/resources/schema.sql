@@ -32,6 +32,7 @@ CREATE TABLE dry_food_entity (
    dry_company VARCHAR(255) NULL,
    dry_price DOUBLE NOT NULL,
    dry_weight DOUBLE NOT NULL,
+   dry_food_pet_type ENUM ('Dog', 'Cat'),
    CONSTRAINT pk_dryfoodentity PRIMARY KEY (dry_id)
 );
 
@@ -42,6 +43,7 @@ CREATE TABLE canned_food_entity (
    canned_company VARCHAR(255) NULL,
    canned_price DOUBLE NOT NULL,
    canned_weight DOUBLE NOT NULL,
+   canned_food_pet_type ENUM ('Dog', 'Cat'),
    CONSTRAINT pk_cannedfoodentity PRIMARY KEY (canned_id)
 );
 

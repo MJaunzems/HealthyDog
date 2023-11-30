@@ -8,15 +8,15 @@ INSERT INTO user_entity (user_id, user_role, user_nickname, user_email, user_pho
 (2, 'Admin', 'JaneD', 'jane.doe@example.com', 0987654321, 'password123'),
 (3, 'User', 'BobS', 'bob.smith@example.com', 1122334455, 'bobspassword');
 
-INSERT INTO dry_food_entity (dry_id, dry_company, dry_price, dry_weight) VALUES
-(1, 'PetFoodCo', 20.0, 5.0),
-(2, 'HealthyPets', 25.0, 4.0),
-(3, 'NaturalChoice', 30.0, 6.0);
+INSERT INTO dry_food_entity (dry_id, dry_company, dry_price, dry_weight, dry_food_pet_type) VALUES
+(1, 'PetFoodCo', 20.0, 5.0, 'Dog'),
+(2, 'HealthyPets', 25.0, 4.0, 'Cat'),
+(3, 'NaturalChoice', 30.0, 6.0, 'Cat');
 
-INSERT INTO canned_food_entity (canned_id, canned_company, canned_price, canned_weight) VALUES
-(1, 'PetFoodCo', 2.0, 0.5),
-(2, 'HealthyPets', 2.5, 0.4),
-(3, 'NaturalChoice', 3.0, 0.6);
+INSERT INTO canned_food_entity (canned_id, canned_company, canned_price, canned_weight, canned_food_pet_type) VALUES
+(1, 'PetFoodCo', 2.0, 0.5, 'Dog'),
+(2, 'HealthyPets', 2.5, 0.4, 'Cat'),
+(3, 'NaturalChoice', 3.0, 0.6, 'Dog');
 
 INSERT INTO dry_food_ingredients_entity (ingredient_id, dry_id, ingredient_name) VALUES
 (1, 1, 'Chicken'),

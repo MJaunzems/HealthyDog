@@ -1,5 +1,6 @@
 package com.example.HealthyDog.Entities;
 
+
 public class FoodEntity {
     private String name;
     private double weight;

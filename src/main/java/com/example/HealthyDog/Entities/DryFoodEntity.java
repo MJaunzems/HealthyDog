@@ -15,11 +15,13 @@ public class DryFoodEntity {
     private String dry_company;
     private double dry_price;
     private double dry_weight;
+    private String dry_food_pet_type;
 
-    public DryFoodEntity(long dry_id, String dry_company, double dry_price, double dry_weight) {
+    public DryFoodEntity(long dry_id, String dry_company, double dry_price, double dry_weight, String dry_food_pet_type) {
         this.dry_id = dry_id;
         this.dry_company = dry_company;
         this.dry_price = dry_price;
         this.dry_weight = dry_weight;
+        this.dry_food_pet_type = dry_food_pet_type;
     }
 }
