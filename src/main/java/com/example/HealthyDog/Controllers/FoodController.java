@@ -11,7 +11,7 @@ import java.util.List;
 @Controller
 public class FoodController {
 
-    @GetMapping("/")
+    @GetMapping("/foodCalc")
     public String showFoods(Model model) {
 
         FoodEntity food1 = new FoodEntity("Dog Food", 500, 2);
