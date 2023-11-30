@@ -1,10 +1,11 @@
 package com.example.HealthyDog.Controllers;
 
 import com.example.HealthyDog.Entities.FoodEntity;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,19 @@ import java.util.List;
 public class FoodController {
 
     @PostMapping("/foodCalc")
-    public String showFoods(Model model) {
+    public String showFoods(@RequestParam String activity,
+                            @RequestParam double weight,
+                            @RequestParam int age,
+                            @RequestParam String allergies,
+                            @RequestParam double price,
+                            Model model, HttpSession session) {
+
+        session.setAttribute("activity", activity);
+        session.setAttribute("weight", weight);
+        session.setAttribute("age", age);
+        session.setAttribute("allergies", allergies);
+        session.setAttribute("price", price);
+
 
         FoodEntity food1 = new FoodEntity("Dog Food", 500, 2);
         FoodEntity food2 = new FoodEntity("Cat Food", 300, 1);
@@ -37,6 +50,8 @@ public class FoodController {
         foods.add(food9);
 
         model.addAttribute("foods", foods);
+
+        session.getAttribute("type");
 
         return "index";
     }

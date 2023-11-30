@@ -32,3 +32,4 @@ INSERT INTO allergic_foods_entity (allergic_id, pet_id, ingredient_id, allergic_
 (1, 1, 3, 'Beef'),
 (2, 2, 1, 'Chicken'),
 (3, 3, 5, 'Salmon');
+
