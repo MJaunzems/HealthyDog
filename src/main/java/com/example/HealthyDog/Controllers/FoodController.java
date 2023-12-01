@@ -51,7 +51,7 @@ public class FoodController {
 
         model.addAttribute("foods", foods);
 
-        session.getAttribute("type");
+        System.out.println(session.getAttribute("allergies"));
 
         return "index";
     }
