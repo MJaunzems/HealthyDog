@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Animal</title>
+</head>
+<body>
+
+<h2>Dry Dog Food List:</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Company</th>
+        <th>Age</th>
+        <th>Image</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dryFood : ${dryFoods}">
+        <td th:text="${dryFood.dryId}"></td>
+        <td th:text="${dryFood.dryCompany}"></td>
+        <td th:text="${dryFood.dryFoodAgeType}"></td>
+        <td>
+            <img width="300px" height="300x" th:src="${dryFood.imageName}">
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
