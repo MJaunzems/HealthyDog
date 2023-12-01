@@ -90,19 +90,15 @@ INSERT INTO canned_food_ingredients_entity (ingredient_id, canned_id, ingredient
 (7, 5, 'Turkey'),
 (10, 6, 'Salmon'),
 (7, 7, 'Turkey'),
-(10, 6, 'Salmon'),
-(7, 7, 'Turkey'),
-(3, 8, 'Duck'),
-(11, 9, 'Pheasant'),
 (3, 8, 'Duck'),
 (11, 9, 'Pheasant'),
 (12, 10, 'Tuna'),
 (13, 10, 'Cod'),
 (12, 11, 'Tuna'),
 (2, 11, 'Chicken'),
-(4, 12, 'Pork');
-(2, 13, 'Chicken');
-(4, 13, 'Pork');
+(4, 12, 'Pork'),
+(2, 13, 'Chicken'),
+(4, 13, 'Pork'),
 (14, 13, 'Cheese');
 
 INSERT INTO dry_food_ingredients_entity (ingredient_id, dry_id, ingredient_name) VALUES
@@ -191,8 +187,8 @@ INSERT INTO allergic_foods_entity (allergic_id, ingredient_id, allergic_name) VA
 (4, 4, 'Pork'),
 (5, 5, 'Beef'),
 (6, 6, 'Fish'),
-(7, 7, 'Turkey');
-(8, 8, 'Deer');
+(7, 7, 'Turkey'),
+(8, 8, 'Deer'),
 (9, 9, 'Wild Boar'),
 (10, 10, 'Salmon'),
 (11, 10, 'Pheasant'),
