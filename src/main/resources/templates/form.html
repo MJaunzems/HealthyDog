@@ -32,14 +32,13 @@ input[type="number"]::-webkit-outer-spin-button {
     <input type="number" id="weight" name="weight" placeholder="0.00"><br>
     <label for="age">Age:</label><br>
     <input type="number" id="age" name="age" placeholder="0"><br>
-    <label for="allergies">Allergies:</label><br>
-    <select name="allergies" id="allergies">
-        <option value="0">Select option:</option>
-        <option th:each="option : ${options}" th:value="${option.allergicId}" th:text="${option.allergicName}"></option>
-    </select><br>
+    <div th:each="option : ${options}">
+        <input type="checkbox" name="allergies" th:value="${option.allergicName}" th:id="${'allergy-' + option.allergicId}" />
+        <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"></label><br>
+    </div>
     <label for="price">Enter maximum price:</label><br>
     <input type="number" id="price" name="price" placeholder="0.00">
-    <input type="submit" value="submit">
+    <input type="submit" value="Submit">
 </form>
 </body>
 </html>
