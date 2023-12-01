@@ -1,4 +1,4 @@
- INSERT INTO pet_entity (pet_id, user_id, pet_type, pet_name, pet_activity, pet_weight, pet_age, pet_illness, pet_price_range) VALUES
+INSERT INTO pet_entity (pet_id, user_id, pet_type, pet_name, pet_activity, pet_weight, pet_age, pet_illness, pet_price_range) VALUES
 (1, 1, 'Dog', 'Rex', 'Active', 30.0, 7, NULL, 100),
 (2, 1, 'Cat', 'Whiskers', 'Inactive', 15.0, 3, NULL, 50),
 (3, 2, 'Dog', 'Fido', 'Active', 40.0, 5, 'Arthritis', 150);
@@ -6,7 +6,7 @@
 INSERT INTO user_entity (user_id, user_role, user_nickname, user_email, user_phone, user_password) VALUES
 (1, 'User', 'JohnD', 'john.doe@example.com', 1234567890, 'password'),
 (2, 'Admin', 'JaneD', 'jane.doe@example.com', 0987654321, 'password123'),
-(3, 'User', 'BobS', 'bob.smit h@example.com', 1122334455, 'bobspassword');
+(3, 'User', 'BobS', 'bob.smith@example.com', 1122334455, 'bobspassword');
 
 INSERT INTO dry_food_entity (dry_id, dry_company, dry_food_age_type, dry_price, dry_weight, dry_calorie, dry_food_pet_type) VALUES
 (1, 'ACANA GRASSLANDS DOG','Puppy', 19.0, 2.0, 381, 'Dog'),
