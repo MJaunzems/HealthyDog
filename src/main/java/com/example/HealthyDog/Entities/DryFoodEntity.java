@@ -8,21 +8,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 public class DryFoodEntity {
 
     @Id
-    @Column(name="dry_id")
+    @Column(name = "dry_id")
     private long dryId;
-    @Column(name="dry_company")
+    @Column(name = "dry_company")
     private String dryCompany;
-    @Column(name="dry_food_age_type")
+    @Column(name = "dry_food_age_type")
     private String dryFoodAgeType;
-    @Column(name="dry_price")
+    @Column(name = "dry_price")
     private double dryPrice;
-    @Column(name="dry_weight")
+    @Column(name = "dry_weight")
     private double dryWeight;
-    @Column(name="dry_food_pet_type")
+    @Column(name = "dry_food_pet_type")
     private String dryFoodPetType;
 
     public DryFoodEntity(long dryId, String dryCompany, String dryFoodAgeType, double dryPrice, double dryWeight, String dryFoodPetType) {

@@ -8,15 +8,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 public class DryFoodIngredientsEntity {
 
     @Id
-    @Column(name="ingredient_id")
+    @Column(name = "ingredient_id")
     private long ingredientId;
-    @Column(name="dry_id")
+    @Column(name = "dry_id")
     private long dryId;
-    @Column(name="ingredient_name")
+    @Column(name = "ingredient_name")
     private String ingredientName;
 
     public DryFoodIngredientsEntity(long ingredientId, long dryId, String ingredientName) {

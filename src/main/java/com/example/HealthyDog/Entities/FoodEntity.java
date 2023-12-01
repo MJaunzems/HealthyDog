@@ -36,4 +36,5 @@ public class FoodEntity {
     public void setDailyPortion(int dailyPortion) {
         this.dailyPortion = dailyPortion;
     }
+
 }
