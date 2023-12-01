@@ -42,7 +42,15 @@
         .btn-success {
             padding: 10px 20px;
         }
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
     </style>
 </head>
@@ -65,19 +73,30 @@
         </div>
 
         <div class="col-md-4">
-            <h2>Form info</h2>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="filter1">
-                <label class="form-check-label" for="filter1">
-                    Chicken
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="filter2">
-                <label class="form-check-label" for="filter2">
-                    Beef
-                </label>
-            </div>
+            <h1>Form</h1>
+            <form th:action="@{/processForm}" method="post">
+                <label for="activity">Activity:</label><br>
+                <select name="activity" id="activity">
+                    <option value="0">Select option:</option>
+                    <option value="minimal_active">Minimal activity (or old)</option>
+                    <option value="low_active">Low activity</option>
+                    <option value="medium_active">Medium activity</option>
+                    <option value="high_active">High activity</option>
+                    <option value="very_high_active">Very high activity</option>
+                </select><br>
+                <label for="weight" >Weight:</label><br>
+                <input type="number" id="weight" name="weight" placeholder="0.00"><br>
+                <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age" placeholder="0"><br>
+                <p>Allergies:</p>
+                <div th:each="option : ${options}">
+                    <input type="checkbox" name="allergies" th:value="${option.allergicName}" th:id="${'allergy-' + option.allergicId}" />
+                    <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"></label><br>
+                </div>
+                <label for="price">Enter maximum price:</label><br>
+                <input type="number" id="price" name="price" placeholder="0.00">
+                <input type="submit" value="Submit">
+            </form>
 
             <div class="fixed-buttons" style="left: 10px;">
                 <button type="button" class="btn btn-primary">Print</button>

@@ -19,11 +19,11 @@ public class FormController {
     @Autowired
     private AllergicFoodsRepository allergicFoodsRepository;
 
-    @PostMapping("/processForm")
+    /*@PostMapping("/processForm")
     public ModelAndView form(@RequestParam("type") String type, HttpSession session, Model model){
         session.setAttribute("type", type);
         return new ModelAndView("redirect:/form");
-    }
+    }*/
 
     @GetMapping("/form")
     public ModelAndView form(Model model){
