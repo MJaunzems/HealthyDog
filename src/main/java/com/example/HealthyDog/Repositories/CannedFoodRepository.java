@@ -1,4 +1,4 @@
-package com.example.HealthyDog.repository;
+package com.example.HealthyDog.Repositories;
 
 import com.example.HealthyDog.Entities.CannedFoodEntity;
 import org.springframework.data.repository.CrudRepository;

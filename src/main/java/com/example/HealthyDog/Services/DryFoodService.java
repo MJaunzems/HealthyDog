@@ -1,7 +1,7 @@
 package com.example.HealthyDog.Services;
 
 import com.example.HealthyDog.Entities.DryFoodEntity;
-import com.example.HealthyDog.repository.DryFoodRepository;
+import com.example.HealthyDog.Repositories.DryFoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
