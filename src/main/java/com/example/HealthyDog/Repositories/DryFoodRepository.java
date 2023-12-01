@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface DryFoodRepository extends CrudRepository<DryFoodEntity, Long> {
     List<DryFoodEntity> findByDryCompany(String dryCompany);
-
 }
