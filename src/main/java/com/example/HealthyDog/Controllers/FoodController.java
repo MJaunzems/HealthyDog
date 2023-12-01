@@ -53,7 +53,7 @@ public class FoodController {
         FoodEntity food6 = new FoodEntity("Prime Dog can food", 400, 2,"");
         FoodEntity food7 = new FoodEntity("Dry cat food", 650, 5,"");
         FoodEntity food8 = new FoodEntity("Can chicken food for cats", 600, 1,"");
-        FoodEntity food9 = new FoodEntity("Food for all animals", 100, 2,"");
+        FoodEntity food9 = new FoodEntity("Food for all animals", 100, 2, "");
 
         List<FoodEntity> foods = new ArrayList<>();
         foods.add(food1);
