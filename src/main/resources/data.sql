@@ -63,10 +63,47 @@ INSERT INTO dry_food_entity (dry_id, dry_company, dry_food_age_type, dry_price, 
 --(2, 'Oasy Cat Grain Free Adult Fish ', 21.0, 1.5, 'Cat'),
 --(3, 'Savita Adult Dog Venison', 41.5, 4.0, 'Cat');
 
-INSERT INTO canned_food_entity (canned_id, canned_company, canned_price, canned_weight, canned_food_pet_type) VALUES
-(1, 'BLITZ DUCK', 2.0, 0.2, 'Dog'),
-(2, 'BANDITOS', 0.49, 0.075, 'Cat'),
-(3, 'BLITZ BEEF', 2.0, 0.2, 'Dog');
+INSERT INTO canned_food_entity (canned_id, canned_company, canned_food_age_type, canned_price, canned_weight, canned_calorie, canned_food_pet_type) VALUES
+(1, 'Carnilove Grain Free Dog Adult Venison & Reindeer', 'Adult', 2.84, 0.4, 116, 'Dog'),
+(2, 'Carnilove Grain Free Dog Adult Venison & Reindeer', 'Senior', 2.84, 0.4, 116, 'Dog'),
+(3, 'Carnilove Grain Free Dog Adult Lamb & Wild Boar', 'Adult', 2.84, 0.4, 107.5, 'Dog'),
+(4, 'Carnilove Grain Free Dog Adult Venison & Reindeer', 'Senior', 2.84, 0.4, 107.5, 'Dog'),
+(5, 'Carnilove Grain Free Puppy Salmon & Turkey', 'Puppy', 2.89, 0.4, 108, 'Dog'),
+(6, 'Carnilove Grain Free Dog Adult Salmon & Turkey', 'Adult', 2.84, 0.4, 108, 'Dog'),
+(7, 'Carnilove Grain Free Dog Adult Salmon & Turkey', 'Senior', 2.84, 0.4, 108, 'Dog'),
+(8, 'Carnilove Grain Free Dog Adult Duck & Pheasant', 'Adult', 2.84, 0.4, 121, 'Dog'),
+(9, 'Carnilove Grain Free Dog Adult Duck & Pheasant', 'Senior', 2.84, 0.4, 121, 'Dog'),
+(10, 'Almo Nature HFC Dog Natural Tuna & Cod', 'Adult', 3.39, 0.290, 76.5, 'Dog'),
+(11, 'Almo Nature HFC Dog Natural Tuna & Chicken', 'Adult', 3.39, 0.290, 93.9, 'Dog'),
+(12, 'Almo Nature HFC Dog Natural Pork', 'Adult', 1.82, 0.400, 76.2, 'Dog'),
+(13, 'Almo Nature Daily Dog Chicken Ham Cheese', 'Adult', 1.48, 0.300, 74.2, 'Dog'),
+(14, 'Almo Nature Daily Dog Chicken Ham Cheese', 'Adult', 1.48, 0.300, 74.2, 'Dog');
+
+INSERT INTO canned_food_ingredients_entity (ingredient_id, canned_id, ingredient_name) VALUES
+(8, 1, 'Deer'),
+(8, 2, 'Deer'),
+(1, 3, 'Lamb'),
+(1, 4, 'Lamb'),
+(9, 3, 'Wild Boar'),
+(9, 4, 'Wild Boar'),
+(10, 5, 'Salmon'),
+(7, 5, 'Turkey'),
+(10, 6, 'Salmon'),
+(7, 7, 'Turkey'),
+(10, 6, 'Salmon'),
+(7, 7, 'Turkey'),
+(3, 8, 'Duck'),
+(11, 9, 'Pheasant'),
+(3, 8, 'Duck'),
+(11, 9, 'Pheasant'),
+(12, 10, 'Tuna'),
+(13, 10, 'Cod'),
+(12, 11, 'Tuna'),
+(2, 11, 'Chicken'),
+(4, 12, 'Pork');
+(2, 13, 'Chicken');
+(4, 13, 'Pork');
+(14, 13, 'Cheese');
 
 INSERT INTO dry_food_ingredients_entity (ingredient_id, dry_id, ingredient_name) VALUES
 (1, 1, 'Lamb'),
@@ -146,11 +183,6 @@ INSERT INTO dry_food_ingredients_entity (ingredient_id, dry_id, ingredient_name)
 (7, 33, 'Turkey'),
 (7, 42, 'Turkey');
 
-INSERT INTO canned_food_ingredients_entity (ingredient_id, canned_id, ingredient_name) VALUES
-(4, 1, 'Duck'),
-(5, 2, 'Beef'),
-(6, 3, 'Beef');
-
 INSERT INTO allergic_foods_entity (allergic_id, ingredient_id, allergic_name) VALUES
 
 (1, 1, 'Lamb'),
@@ -160,3 +192,10 @@ INSERT INTO allergic_foods_entity (allergic_id, ingredient_id, allergic_name) VA
 (5, 5, 'Beef'),
 (6, 6, 'Fish'),
 (7, 7, 'Turkey');
+(8, 8, 'Deer');
+(9, 9, 'Wild Boar'),
+(10, 10, 'Salmon'),
+(11, 10, 'Pheasant'),
+(12, 12, 'Tuna'),
+(13, 13, 'Cod'),
+(14, 14, 'Cheese');
