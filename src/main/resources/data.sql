@@ -150,6 +150,6 @@ INSERT INTO canned_food_ingredients_entity (ingredient_id, canned_id, ingredient
 (6, 3, 'Beef');
 
 INSERT INTO allergic_foods_entity (allergic_id, pet_id, ingredient_id, allergic_name) VALUES
-(1, 1, 'Beef'),
-(2, 2, 'Chicken'),
-(3, 3, 'Salmon');
+(1, 1, 3, 'Beef'),
+(2, 2, 1, 'Chicken'),
+(3, 3, 5, 'Salmon');
