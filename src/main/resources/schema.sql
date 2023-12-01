@@ -71,7 +71,7 @@ DROP TABLE IF EXISTS allergic_foods_entity;
 
 CREATE TABLE allergic_foods_entity (
    allergic_id BIGINT NOT NULL,
-   pet_id BIGINT NOT NULL,
+--   pet_id BIGINT NOT NULL,
    ingredient_id BIGINT NOT NULL,
    allergic_name VARCHAR(255) NULL,
    CONSTRAINT pk_allergicfoodsentity PRIMARY KEY (allergic_id, pet_id, ingredient_id)

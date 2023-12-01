@@ -24,4 +24,5 @@ public class CalculatorController {
         return String.format("RER: %.2f, Daily Calories: %.2f, Dry Food Grams: %.2f, Canned Food Grams: %.2f",
                 rer, dailyCalories, dryFoodGrams, cannedFoodGrams);
     }
+
 }
