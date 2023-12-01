@@ -21,24 +21,21 @@ input[type="number"]::-webkit-outer-spin-button {
 <form th:action="@{/foodCalc}" method="post">
     <label for="activity">Activity:</label><br>
     <select name="activity" id="activity">
+        <option value="0">Select option:</option>
         <option value="minimal_active">Minimal activity (or old)</option>
         <option value="low_active">Low activity</option>
         <option value="medium_active">Medium activity</option>
         <option value="high_active">High activity</option>
         <option value="very_high_active">Very high activity</option>
     </select><br>
-    <select class="form-control" id="dropDownList">
-        <option value="0">select option</option>
-        <option th:each="option : ${options}" th:value="${option}" th:text="${option}"></option>
-    </select>
     <label for="weight" >Weight:</label><br>
     <input type="number" id="weight" name="weight" placeholder="0.00"><br>
     <label for="age">Age:</label><br>
     <input type="number" id="age" name="age" placeholder="0"><br>
     <label for="allergies">Allergies:</label><br>
-    <select name="allergies" id="allergies"><br>
-        <option value="TODO">TODO</option>
-        <option value="TODO">To be selected from DB</option>
+    <select name="allergies" id="allergies">
+        <option value="0">Select option:</option>
+        <option th:each="option : ${options}" th:value="${option.allergicId}" th:text="${option.allergicName}"></option>
     </select><br>
     <label for="price">Enter maximum price:</label><br>
     <input type="number" id="price" name="price" placeholder="0.00">
