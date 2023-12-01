@@ -56,10 +56,10 @@ INSERT INTO dry_food_entity (dry_id, dry_company, dry_food_age_type, dry_price, 
 (45, 'Acana Light & Fit','Adult', 66.10, 11.4, 307, 'Dog'),
 (46, 'Acana Light & Fit','Senior', 66.10, 11.4, 307, 'Dog'),
 (47, 'Acana Senior Dog','Senior', 66.10, 11.4, 332.5, 'Dog'),
-(48, 'Acana Ranchlands Dog', 86.6, 11.4, 379, 'Dog'),
-(49, 'Acana Ranchlands Dog', 86.6, 11.4, 379, 'Dog'),
-(50, 'Acana Ranchlands Dog', 86.6, 11.4, 379, 'Dog'),
-(51, 'Acana Ranchlands Dog', 86.6, 11.4, 379, 'Dog');
+(48, 'Acana Ranchlands Dog', 'Puppy' , 86.6, 11.4, 379, 'Dog'),
+(49, 'Acana Ranchlands Dog', 'Junior' , 86.6, 11.4, 379, 'Dog'),
+(50, 'Acana Ranchlands Dog', 'Adult' , 86.6, 11.4, 379, 'Dog'),
+(51, 'Acana Ranchlands Dog', 'Senior' , 86.6, 11.4, 379, 'Dog');
 --(2, 'Oasy Cat Grain Free Adult Fish ', 21.0, 1.5, 'Cat'),
 --(3, 'Savita Adult Dog Venison', 41.5, 4.0, 'Cat');
 
@@ -153,10 +153,10 @@ INSERT INTO canned_food_ingredients_entity (ingredient_id, canned_id, ingredient
 
 INSERT INTO allergic_foods_entity (allergic_id, ingredient_id, allergic_name) VALUES
 
-(1, 1, "Lamb"),
-(2, 2, "Chicken"),
-(3, 3, "Duck"),
-(4, 4, "Pork"),
-(5, 5, "Beef"),
-(6, 6, "Fish"),
-(7, 7, "Turkey");
+(1, 1, 'Lamb'),
+(2, 2, 'Chicken'),
+(3, 3, 'Duck'),
+(4, 4, 'Pork'),
+(5, 5, 'Beef'),
+(6, 6, 'Fish'),
+(7, 7, 'Turkey');

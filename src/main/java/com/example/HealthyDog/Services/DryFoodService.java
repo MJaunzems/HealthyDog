@@ -18,7 +18,7 @@ public class DryFoodService {
     }
 
     public List<DryFoodEntity> findByDryCompany(String dryCompany) {
-        return dryFoodRepository.findByDryCompany(dryCompany);
+        return dryFoodRepository.findByDry_company(dryCompany);
     }
 
 }

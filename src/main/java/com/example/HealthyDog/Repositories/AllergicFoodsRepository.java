@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface AllergicFoodsRepository extends CrudRepository<AllergicFoodsEntity, Long> {
-    List<AllergicFoodsEntity> findByAllergicName(String allergicName);
+    List<AllergicFoodsEntity> findByAllergic_name(String allergicName);
 
 }

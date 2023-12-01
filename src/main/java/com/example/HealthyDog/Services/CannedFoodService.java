@@ -18,7 +18,7 @@ public class CannedFoodService {
     }
 
     public List<CannedFoodEntity> findByCannedCompany(String cannedCompany) {
-        return cannedFoodRepository.findByCannedCompany(cannedCompany);
+        return cannedFoodRepository.findByCanned_company(cannedCompany);
     }
 
 }
