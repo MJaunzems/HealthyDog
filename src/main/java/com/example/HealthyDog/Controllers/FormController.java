@@ -20,15 +20,15 @@ public class FormController {
     private AllergicFoodsRepository allergicFoodsRepository;
 
     @PostMapping("/processForm")
+    public ModelAndView form(@RequestParam("type") String type, HttpSession session, Model model){
+        session.setAttribute("type", type);
+        return new ModelAndView("redirect:/form");
+    }
+
+    @GetMapping("/form")
     public ModelAndView form(Model model){
         Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
         model.addAttribute("options", options);
         return new ModelAndView("form");
-    }
-
-    @GetMapping("/form")
-    public ModelAndView form(@RequestParam("type") String type, HttpSession session, Model model){
-        session.setAttribute("type", type);
-        return new ModelAndView("redirect:/form");
     }
 }
