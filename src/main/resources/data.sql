@@ -66,6 +66,7 @@ INSERT INTO canned_food_entity (canned_id, canned_company, canned_price, canned_
 (2, 'BANDITOS', 0.49, 0.075, 'Cat'),
 (3, 'BLITZ BEEF', 2.0, 0.2, 'Dog');
 
+
 INSERT INTO dry_food_ingredients_entity (ingredient_id, dry_id, ingredient_name) VALUES
 (1, 1, 'Lamb'),
 (1, 2, 'Lamb'),
