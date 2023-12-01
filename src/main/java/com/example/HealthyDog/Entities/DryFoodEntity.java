@@ -26,8 +26,10 @@ public class DryFoodEntity {
     private double dryWeight;
     @Column(name = "dry_food_pet_type")
     private String dryFoodPetType;
+    @Column(name = "img_name")
+    private String imageName;
 
-    public DryFoodEntity(long dryId, String dryCompany, String dryFoodAgeType, double dryPrice, double dryWeight, String dryFoodPetType) {
+    public DryFoodEntity(long dryId, String dryCompany, String dryFoodAgeType, double dryPrice, double dryWeight, String dryFoodPetType, String imageName) {
         this.dryId = dryId;
         this.dryCompany = dryCompany;
         this.dryFoodAgeType = dryFoodPetType;
