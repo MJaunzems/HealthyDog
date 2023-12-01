@@ -1,5 +1,6 @@
 package com.example.HealthyDog.Entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -12,14 +13,23 @@ import lombok.Setter;
 public class PetEntity {
 
     @Id
+    @Column(name="PET_ID")
     private long petId;
+    @Column(name="user_id")
     private long userId;
+    @Column(name="pet_type")
     private String petType;
+    @Column(name="pet_name")
     private String petName;
+    @Column(name="pet_activity")
     private String petActivity;
+    @Column(name="pet_weight")
     private double petWeight;
+    @Column(name="pet_age")
     private int petAge;
+    @Column(name="pet_illness")
     private String petIllness;
+    @Column(name="pet_price_range")
     private int petPriceRange;
 
     public PetEntity(long petId, long userId, String petType, String petName, String petActivity, double petWeight, int petAge, String petIllness, int petPriceRange) {
