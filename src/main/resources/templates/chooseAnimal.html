@@ -10,12 +10,12 @@
 
 <h2>Choose type of pet:</h2>
 
-<form th:action="@{/form}" method="post">
+<form th:action="@{/processForm}" method="post">
     <label>
-        <input type="radio" name="animal" value="cat"> Cat
+        <input type="radio" name="type" value="cat"> Cat
     </label>
     <label>
-        <input type="radio" name="animal" value="dog"> Dog
+        <input type="radio" name="type" value="dog"> Dog
     </label>
     <br>
     <input type="submit" value="Submit">
