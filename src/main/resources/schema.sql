@@ -30,8 +30,10 @@ DROP TABLE IF EXISTS dry_food_entity;
 CREATE TABLE dry_food_entity (
    dry_id BIGINT NOT NULL,
    dry_company VARCHAR(255) NULL,
+   dry_food_age_type ENUM ('Puppy', 'Junior', 'Adult', 'Senior'),
    dry_price DOUBLE NOT NULL,
    dry_weight DOUBLE NOT NULL,
+   dry_calorie DOUBLE NOT NULL,
    dry_food_pet_type ENUM ('Dog', 'Cat'),
    CONSTRAINT pk_dryfoodentity PRIMARY KEY (dry_id)
 );
