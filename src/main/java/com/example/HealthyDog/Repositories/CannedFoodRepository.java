@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface CannedFoodRepository extends CrudRepository<CannedFoodEntity, Long> {
-    List<CannedFoodEntity> findByCanned_company(String cannedCompany);
+    List<CannedFoodEntity> findByCannedCompany(String cannedCompany);
 
 }

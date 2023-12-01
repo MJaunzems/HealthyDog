@@ -11,15 +11,15 @@ import lombok.Setter;
 public class AllergicFoodsEntity {
 
     @Id
-    private long allergic_id;
-    private long pet_id;
-    private long ingredient_id;
-    private String allergic_name;
+    private long allergicId;
+    private long petId;
+    private long ingredientId;
+    private String allergicName;
 
-    public AllergicFoodsEntity(long allergic_id, long pet_id, long ingredient_id, String allergic_name) {
-        this.allergic_id = allergic_id;
-        this.pet_id = pet_id;
-        this.ingredient_id = ingredient_id;
-        this.allergic_name = allergic_name;
+    public AllergicFoodsEntity(long allergicId, long petId, long ingredientId, String allergicName) {
+        this.allergicId = allergicId;
+        this.petId = petId;
+        this.ingredientId = ingredientId;
+        this.allergicName = allergicName;
     }
 }

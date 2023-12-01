@@ -11,17 +11,17 @@ import lombok.Setter;
 public class DryFoodEntity {
 
     @Id
-    private long dry_id;
-    private String dry_company;
-    private double dry_price;
-    private double dry_weight;
-    private String dry_food_pet_type;
+    private long dryId;
+    private String dryCompany;
+    private double dryPrice;
+    private double dryWeight;
+    private String dryFoodPetType;
 
-    public DryFoodEntity(long dry_id, String dry_company, double dry_price, double dry_weight, String dry_food_pet_type) {
-        this.dry_id = dry_id;
-        this.dry_company = dry_company;
-        this.dry_price = dry_price;
-        this.dry_weight = dry_weight;
-        this.dry_food_pet_type = dry_food_pet_type;
+    public DryFoodEntity(long dryId, String dryCompany, double dryPrice, double dryWeight, String dryFoodPetType) {
+        this.dryId = dryId;
+        this.dryCompany = dryCompany;
+        this.dryPrice = dryPrice;
+        this.dryWeight = dryWeight;
+        this.dryFoodPetType = dryFoodPetType;
     }
 }

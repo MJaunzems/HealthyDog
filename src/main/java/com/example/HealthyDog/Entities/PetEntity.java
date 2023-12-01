@@ -12,26 +12,26 @@ import lombok.Setter;
 public class PetEntity {
 
     @Id
-    private long pet_id;
-    private long user_id;
-    private String pet_type;
-    private String pet_name;
-    private String pet_activity;
-    private double pet_weight;
-    private int pet_age;
-    private String pet_illness;
-    private int pet_price_range;
+    private long petId;
+    private long userId;
+    private String petType;
+    private String petName;
+    private String petActivity;
+    private double petWeight;
+    private int petAge;
+    private String petIllness;
+    private int petPriceRange;
 
-    public PetEntity(long pet_id, long user_id, String pet_type, String pet_name, String pet_activity, double pet_weight, int pet_age, String pet_illness, int pet_price_range) {
-        this.pet_id = pet_id;
-        this.user_id = user_id;
-        this.pet_type = pet_type;
-        this.pet_name = pet_name;
-        this.pet_activity = pet_activity;
-        this.pet_weight = pet_weight;
-        this.pet_age = pet_age;
-        this.pet_illness = pet_illness;
-        this.pet_price_range = pet_price_range;
+    public PetEntity(long petId, long userId, String petType, String petName, String petActivity, double petWeight, int petAge, String petIllness, int petPriceRange) {
+        this.petId = petId;
+        this.userId = userId;
+        this.petType = petType;
+        this.petName = petName;
+        this.petActivity = petActivity;
+        this.petWeight = petWeight;
+        this.petAge = petAge;
+        this.petIllness = petIllness;
+        this.petPriceRange = petPriceRange;
     }
 
 }

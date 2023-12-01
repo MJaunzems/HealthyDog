@@ -11,13 +11,13 @@ import lombok.Setter;
 public class CannedFoodIngredientsEntity {
 
     @Id
-    private long ingredient_id;
-    private long canned_id;
-    private String ingredient_name;
+    private long ingredientId;
+    private long cannedId;
+    private String ingredientName;
 
-    public CannedFoodIngredientsEntity(long ingredient_id, long canned_id, String ingredient_name) {
-        this.ingredient_id = ingredient_id;
-        this.canned_id = canned_id;
-        this.ingredient_name = ingredient_name;
+    public CannedFoodIngredientsEntity(long ingredientId, long cannedId, String ingredientName) {
+        this.ingredientId = ingredientId;
+        this.cannedId = cannedId;
+        this.ingredientName = ingredientName;
     }
 }

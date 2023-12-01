@@ -11,19 +11,19 @@ import lombok.Setter;
 public class UserEntity {
 
     @Id
-    private long user_id;
-    private String user_role;
-    private String user_nickname;
-    private String user_email;
-    private int user_phone;
-    private String user_password;
+    private long userId;
+    private String userRole;
+    private String userNickname;
+    private String userEmail;
+    private int userPhone;
+    private String userPassword;
 
-    public UserEntity(long user_id, String user_role, String user_nickname, String user_email, int user_phone, String user_password) {
-        this.user_id = user_id;
-        this.user_role = user_role;
-        this.user_nickname = user_nickname;
-        this.user_email = user_email;
-        this.user_phone = user_phone;
-        this.user_password = user_password;
+    public UserEntity(long userId, String userRole, String userNickname, String userEmail, int userPhone, String userPassword) {
+        this.userId = userId;
+        this.userRole = userRole;
+        this.userNickname = userNickname;
+        this.userEmail = userEmail;
+        this.userPhone = userPhone;
+        this.userPassword = userPassword;
     }
 }
