@@ -3,9 +3,9 @@ package com.example.HealthyDog.Services;
 import com.example.HealthyDog.Entities.DryFoodEntity;
 import com.example.HealthyDog.Repositories.DryFoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DryFoodService {
@@ -17,8 +17,8 @@ public class DryFoodService {
         this.dryFoodRepository = dryFoodRepository;
     }
 
-    public List<DryFoodEntity> findByDryCompany(String dryCompany) {
-        return dryFoodRepository.findByDryCompany(dryCompany);
+    public Page<DryFoodEntity> getTopDryFoods(int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return dryFoodRepository.findAll(pageRequest);
     }
-
 }
