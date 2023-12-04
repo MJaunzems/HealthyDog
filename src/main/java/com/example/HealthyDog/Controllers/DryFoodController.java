@@ -26,7 +26,7 @@ public class DryFoodController {
     @GetMapping("/dryfoods")
     public String showDryFoods(Model model,
                                @RequestParam(defaultValue = "0") int page,
-                               @RequestParam(defaultValue = "10") int size) {
+                               @RequestParam(defaultValue = "51") int size) {
         Page<DryFoodEntity> dryFoods = dryFoodService.getTopDryFoods(page, size);
         model.addAttribute("dryFoods", dryFoods.getContent());
         return "dryfoods";
