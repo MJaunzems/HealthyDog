@@ -34,6 +34,7 @@ CREATE TABLE dry_food_entity (
    dry_price DOUBLE NOT NULL,
    dry_weight DOUBLE NOT NULL,
    dry_calorie DOUBLE NOT NULL,
+   img_name VARCHAR(255) NOT NULL,
    dry_food_pet_type ENUM ('Dog', 'Cat'),
    CONSTRAINT pk_dryfoodentity PRIMARY KEY (dry_id)
 );

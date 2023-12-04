@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DryFoodRepository extends JpaRepository<DryFoodEntity, Long> {
-
     Page<DryFoodEntity> findAll(Pageable pageable);
+    List<DryFoodEntity> findByDryCompany(String dryCompany);
 }
