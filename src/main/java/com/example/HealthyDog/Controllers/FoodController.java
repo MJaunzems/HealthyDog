@@ -19,7 +19,7 @@ public class FoodController {
     @Autowired
     private AllergicFoodsRepository allergicFoodsRepository;
 
-    @PostMapping("/processType")
+    /*@PostMapping("/processType")
     public ModelAndView form(@RequestParam String type, HttpSession session){
         session.setAttribute("type", type);
         return new ModelAndView("redirect:/foodCalc");
@@ -38,7 +38,7 @@ public class FoodController {
         session.setAttribute("allergies", allergies);
         session.setAttribute("price", price);
         return new ModelAndView("redirect:/foodCalc");
-    }
+    }*/
 
     @GetMapping("/foodCalc")
     public ModelAndView showFoods(HttpSession session, Model model) {
