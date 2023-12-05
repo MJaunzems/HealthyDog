@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CannedFoodService {
 
@@ -27,6 +29,7 @@ public class CannedFoodService {
             logger.error("Error occurred while fetching canned foods by company: {}", cannedCompany, e);
             throw new RuntimeException("Error occurred while fetching canned foods by company: " + cannedCompany, e);
         }
+    }
 
     public Page<CannedFoodEntity> getTopCannedFoods(int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
