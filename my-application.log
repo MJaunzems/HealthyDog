@@ -289,6 +289,9 @@
 2023-12-05T13:29:12.692+02:00  INFO 1576 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-12-05T13:29:12.693+02:00  INFO 1576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-12-05T13:29:12.694+02:00  INFO 1576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-12-05T15:23:17.342+02:00  INFO 19616 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-05T15:23:17.343+02:00  INFO 19616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-05T15:23:17.345+02:00  INFO 19616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 2023-12-05T13:30:29.426+02:00  INFO 22184 --- [main] c.e.HealthyDog.HealthyDogApplication     : Starting HealthyDogApplication using Java 20.0.2 with PID 22184 (D:\Sprint2\target\classes started by Admin in D:\Sprint2)
 2023-12-05T13:30:29.428+02:00  INFO 22184 --- [main] c.e.HealthyDog.HealthyDogApplication     : No active profile set, falling back to 1 default profile: "default"
 2023-12-05T13:30:29.963+02:00  INFO 22184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
