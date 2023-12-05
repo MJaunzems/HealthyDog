@@ -4,44 +4,71 @@
     <title>ProcessType</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <style>
         body {
             background-color: #a4ac86;
-            margin: 0;
-            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-top: 20px;
         }
 
-        .fixed-buttons {
-            position: fixed;
-            left: 10px;
-            top: 15px;
+        .text-center {
+            text-align: center;
         }
 
-        .move-left {
-            left: -100px;
+        h1{
+        margin-top: -300px;
+        font-family: Arial, Helvetica, sans-serif;
         }
 
-        .btn-primary,
-        .btn-success {
-            padding: 10px 20px;
+
+        .form-inline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
+        .checkbox-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .form-check-inline {
+            margin: 0 10px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column align-items-center">
+<div class="title-container">
+    <h1 class="text-center">Healthy Dog</h1>
+</div>
+<div class="text-center mb-4">
+    <h2>Choose type of pet:</h2>
+<form action="/process-animal" onsubmit="return navigateToPage2()" method="post" class="form-inline">
+    <div class="checkbox-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="animal" id="cat" value="cat">
+            <label class="form-check-label" for="cat">Cat</label>
+        </div>
 
-<h2>Choose type of pet:</h2>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
+            <label class="form-check-label" for="dog">Dog</label>
+        </div>
+    </div>
 
-<form th:action="@{/processType}" method="post">
-    <label>
-        <input type="radio" name="type" value="cat"> Cat
-    </label>
-    <label>
-        <input type="radio" name="type" value="dog"> Dog
-    </label>
-    <br>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
