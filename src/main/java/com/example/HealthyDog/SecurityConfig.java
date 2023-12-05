@@ -36,7 +36,7 @@ public class SecurityConfig {
                         .ignoringRequestMatchers(toH2Console())
                         .disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/foodCalc", "/processType").permitAll()
+                        .requestMatchers("/", "/processForm", "/processType", "/dryfoods", "/error").permitAll()
                         .requestMatchers(toH2Console()).permitAll()
                         .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
