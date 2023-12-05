@@ -45,6 +45,8 @@ public class MyUserDetails implements UserDetails {
         return userNickname;
     }
 
+    public String getEmail() {return userEmail;}
+    public int getPhone() {return userPhone;}
     @Override
     public boolean isAccountNonExpired() {
         return true;

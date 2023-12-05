@@ -5,6 +5,7 @@ import com.example.HealthyDog.MyUserDetails;
 import com.example.HealthyDog.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,5 +30,9 @@ public class UserService implements UserDetailsService{
     public void saveUser(UserEntity user){
         user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
         userRepository.save(user);
+    }
+
+    public void updateUser(User updatedUser) {
+
     }
 }

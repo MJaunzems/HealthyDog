@@ -31,7 +31,7 @@ public class LoginController {
         return "hello";
     }
 
-    @GetMapping("/admin")
+    /*@GetMapping("/admin")
     public String admin(){
         List<UserEntity> users = userRepository.findAll();
         for(UserEntity user: users){
@@ -40,6 +40,6 @@ public class LoginController {
         }
         userRepository.saveAll(users);
         return "photoTest";
-    }
+    }*/
 
 }
