@@ -1,31 +1,135 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #a4ac86;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            min-height: 100vh;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #3498db;
+            color: #936639;
+        }
+
+        .fixed-buttons {
+        position: fixed;
+        left: 10px;
+        top: 15px;
+    }
+
+    .exit-link {
+        position: fixed;
+        right: 10px;
+        top: 15px;
+        font-size: 26px;
+    }
+
+    .move-left {
+        left: -100px;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+        }
+
+        .btn-success {
+            padding: 10px 20px;
+        }
+
+        ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+
+    </style>
 </head>
 <body>
+<div class="container vh-100 mt-4">
+    <h1>Canned Food list</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Calculated canned food for your dog</h1>
+            <table border="1" class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Age Type</th>
+                    <th>Price</th>
+                    <th>Weight</th>
+                    <th>Pet Type</th>
+                    <th>Image</th>
+                </tr>
+                <tr th:each="cannedFood : ${cannedFoods}">
+                    <td th:text="${cannedFood.cannedId}"></td>
+                    <td th:text="${cannedFood.cannedCompany}"></td>
+                    <td th:text="${cannedFood.cannedFoodAgeType}"></td>
+                    <td th:text="${cannedFood.cannedPrice}"></td>
+                    <td th:text="${cannedFood.cannedWeight}"></td>
+                    <td th:text="${cannedFood.cannedFoodPetType}"></td>
+                    <td><img width="300px" height="300x" th:src="${cannedFood.cannedImageName}"></td>
+                </tr>
+            </table>
+        </div>
 
-<h2>Canned Dog Food List:</h2>
+        <div class="col-md-4">
+            <h1>Form</h1>
+            <form th:action="@{/processForm}" method="post">
+                <label for="activity">Activity:</label><br>
+                <select name="activity" id="activity">
+                    <option value="0">Select option:</option>
+                    <option value="minimal_active">Minimal activity (or old)</option>
+                    <option value="low_active">Low activity</option>
+                    <option value="medium_active">Medium activity</option>
+                    <option value="high_active">High activity</option>
+                    <option value="very_high_active">Very high activity</option>
+                </select><br>
+                <label for="weight" >Weight:</label><br>
+                <input type="number" id="weight" name="weight" placeholder="0.00"><br>
+                <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age" placeholder="0"><br>
+                <p>Allergies:</p>
+                <div th:each="option : ${options}">
+                    <input type="checkbox" name="allergies" th:value="${option.allergicName}" th:id="${'allergy-' + option.allergicId}" />
+                    <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"></label><br>
+                </div>
+                <label for="price">Enter maximum price:</label><br>
+                <input type="number" id="price" name="price" placeholder="0.00">
+                <input type="submit" value="Submit">
+            </form>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Company</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="cannedFood : ${cannedFoods}">
-        <td th:text="${cannedFood.cannedId}"></td>
-        <td th:text="${cannedFood.cannedCompany}"></td>
-        <td>
-            <img width="300px" height="300x" th:src="${cannedFood.cannedImageName}">
-        </td>
-    </tr>
-    </tbody>
-</table>
+            <div class="fixed-buttons" style="left: 10px;">
+                <button type="button" class="btn btn-primary">Print</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
 
+            <a href="#" class="exit-link">Exit</a>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
