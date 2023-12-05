@@ -21,4 +21,5 @@ public class DryFoodService {
         PageRequest pageRequest = PageRequest.of(page, size);
         return dryFoodRepository.findAll(pageRequest);
     }
+
 }
