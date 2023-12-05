@@ -50,7 +50,7 @@ public class DryFoodController {
     @GetMapping("/dryfoods")
     public String showDryFoods(Model model,
                                @RequestParam(defaultValue = "0") int page,
-                               @RequestParam(defaultValue = "51") int size) {
+                               @RequestParam(defaultValue = "71") int size) {
         Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
         model.addAttribute("options", options);
         Page<DryFoodEntity> dryFoods = dryFoodService.getTopDryFoods(page, size);
