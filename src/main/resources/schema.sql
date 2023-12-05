@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS user_entity;
 
 CREATE TABLE user_entity (
    user_id BIGINT NOT NULL,
-   user_role ENUM ('User', 'Admin'),
+   user_role VARCHAR(255) NOT NULL,
    user_nickname VARCHAR(255) NULL,
    user_email VARCHAR(255) NULL,
    user_phone INT NOT NULL,
