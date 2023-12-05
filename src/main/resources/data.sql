@@ -4,9 +4,9 @@ INSERT INTO pet_entity (pet_id, user_id, pet_type, pet_name, pet_activity, pet_w
 (3, 2, 'Dog', 'Fido', 'Active', 40.0, 5, 'Arthritis', 150);
 
 INSERT INTO user_entity (user_id, user_role, user_nickname, user_email, user_phone, user_password) VALUES
-(1, 'User', 'JohnD', 'john.doe@example.com', 1234567890, 'password'),
-(2, 'Admin', 'JaneD', 'jane.doe@example.com', 0987654321, 'password123'),
-(3, 'User', 'BobS', 'bob.smith@example.com', 1122334455, 'bobspassword');
+(1, 'USER', 'JohnD', 'john.doe@example.com', 1234567890, '$2a$10$t1KJ8MwhI.JbrYbBcaxyGOjl0AkU/Zp.5OT0ftUwDlIbpM7TLU3ku'),
+(2, 'ADMIN', 'JaneD', 'jane.doe@example.com', 0987654321, '$2a$10$chgE/iwoy8waQgAwexbBV.RLo4gWqLj6MmGGx4sRb1RAf6mxxVZYi'),
+(3, 'USER', 'BobS', 'bob.smith@example.com', 1122334455, '$2a$10$WAQCdPcZ/4EHCCeIt.0LB.seMU/9KLMgMjEYpRmwbP9ckxEQ/sTTG');
 
 INSERT INTO dry_food_entity (dry_id, dry_company, dry_food_age_type, dry_price, dry_weight, dry_calorie, dry_food_pet_type, img_name) VALUES
 (1, 'ACANA GRASSLANDS DOG','Puppy', 19.0, 2.0, 381, 'Dog', '/images/DryFood1.png'),

@@ -103,7 +103,9 @@ input[type="number"]::-webkit-outer-spin-button {
                 <button type="button" class="btn btn-success">Save</button>
             </div>
 
-            <a href="#" class="exit-link">Exit</a>
+            <form class="exit-link" th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
 
         </div>
     </div>
