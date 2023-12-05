@@ -21,12 +21,10 @@ public class DryFoodController {
     private AllergicFoodsRepository allergicFoodsRepository;
     private final DryFoodService dryFoodService;
 
-
     @Autowired
     public DryFoodController(DryFoodService dryFoodService) {
         this.dryFoodService = dryFoodService;
     }
-
 
     @PostMapping("/processType")
     public ModelAndView form(@RequestParam String type, HttpSession session){
@@ -49,8 +47,6 @@ public class DryFoodController {
         return new ModelAndView("redirect:/dryfoods");
     }
 
-
-
     @GetMapping("/dryfoods")
     public String showDryFoods(Model model,
                                @RequestParam(defaultValue = "0") int page,
@@ -61,4 +57,5 @@ public class DryFoodController {
         model.addAttribute("dryFoods", dryFoods.getContent());
         return "dryfoods";
     }
+
 }
