@@ -4,7 +4,12 @@ import com.example.HealthyDog.Entities.AllergicFoodsEntity;
 import com.example.HealthyDog.Entities.CannedFoodEntity;
 import com.example.HealthyDog.Repositories.AllergicFoodsRepository;
 import com.example.HealthyDog.Services.CannedFoodService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -20,12 +25,22 @@ public class CannedFoodController {
     @Autowired
     private AllergicFoodsRepository allergicFoodsRepository;
     private final CannedFoodService cannedFoodService;
+    private static final Logger logger = LoggerFactory.getLogger(CannedFoodController.class);
 
     @Autowired
     public CannedFoodController(CannedFoodService cannedFoodService) {
         this.cannedFoodService = cannedFoodService;
     }
 
+    @GetMapping("/findByCannedCompany/{cannedCompany}")
+    public List<CannedFoodEntity> findByCannedCompany(@PathVariable String cannedCompany) {
+        try {
+            return cannedFoodService.findByCannedCompany(cannedCompany);
+        } catch (Exception e) {
+            logger.error("Error occurred while processing request for canned foods by company: {}", cannedCompany, e);
+            return List.of();
+        }
+    }
     @PostMapping("/secondProcessType")
     public ModelAndView form(@RequestParam String type, HttpSession session){
         session.setAttribute("type", type);
@@ -64,6 +79,5 @@ public class CannedFoodController {
         model.addAttribute("cannedFoods", cannedFoods.getContent());
         return "cannedfoods";
     }
-
 
 }
