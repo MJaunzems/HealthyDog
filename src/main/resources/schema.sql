@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS user_entity;
 
 CREATE TABLE user_entity (
    user_id BIGINT NOT NULL,
-   user_role ENUM ('User', 'Admin'),
+   user_role VARCHAR(255) NOT NULL,
    user_nickname VARCHAR(255) NULL,
    user_email VARCHAR(255) NULL,
    user_phone INT NOT NULL,
@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS canned_food_entity;
 CREATE TABLE canned_food_entity (
    canned_id BIGINT NOT NULL,
    canned_company VARCHAR(255) NULL,
-   canned_food_age_type ENUM ('Puppy', 'Junior', 'Adult', 'Senior'),
+   canned_food_age_type ENUM ('Kitten','Puppy', 'Junior', 'Adult', 'Senior'),
    canned_price DOUBLE NOT NULL,
    canned_weight DOUBLE NOT NULL,
    canned_calorie DOUBLE NOT NULL,

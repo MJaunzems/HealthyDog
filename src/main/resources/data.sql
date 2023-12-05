@@ -4,9 +4,9 @@ INSERT INTO pet_entity (pet_id, user_id, pet_type, pet_name, pet_activity, pet_w
 (3, 2, 'Dog', 'Fido', 'Active', 40.0, 5, 'Arthritis', 150);
 
 INSERT INTO user_entity (user_id, user_role, user_nickname, user_email, user_phone, user_password) VALUES
-(1, 'User', 'JohnD', 'john.doe@example.com', 1234567890, 'password'),
-(2, 'Admin', 'JaneD', 'jane.doe@example.com', 0987654321, 'password123'),
-(3, 'User', 'BobS', 'bob.smith@example.com', 1122334455, 'bobspassword');
+(1, 'USER', 'JohnD', 'john.doe@example.com', 1234567890, '$2a$10$t1KJ8MwhI.JbrYbBcaxyGOjl0AkU/Zp.5OT0ftUwDlIbpM7TLU3ku'),
+(2, 'ADMIN', 'JaneD', 'jane.doe@example.com', 0987654321, '$2a$10$chgE/iwoy8waQgAwexbBV.RLo4gWqLj6MmGGx4sRb1RAf6mxxVZYi'),
+(3, 'USER', 'BobS', 'bob.smith@example.com', 1122334455, '$2a$10$WAQCdPcZ/4EHCCeIt.0LB.seMU/9KLMgMjEYpRmwbP9ckxEQ/sTTG');
 
 INSERT INTO dry_food_entity (dry_id, dry_company, dry_food_age_type, dry_price, dry_weight, dry_calorie, dry_food_pet_type, img_name) VALUES
 (1, 'ACANA GRASSLANDS DOG','Puppy', 19.0, 2.0, 381, 'Dog', '/images/DryFood1.png'),
@@ -94,7 +94,22 @@ INSERT INTO canned_food_entity (canned_id, canned_company, canned_food_age_type,
 (10, 'Almo Nature HFC Dog Natural Tuna & Cod', 'Adult', 3.39, 0.290, 76.5, 'Dog', '/images/CannedFood10.png'),
 (11, 'Almo Nature HFC Dog Natural Tuna & Chicken', 'Adult', 3.39, 0.290, 93.9, 'Dog', '/images/CannedFood11.png'),
 (12, 'Almo Nature HFC Dog Natural Pork', 'Adult', 1.82, 0.400, 76.2, 'Dog', '/images/CannedFood12.png'),
-(13, 'Almo Nature Daily Dog Chicken Ham Cheese', 'Adult', 1.48, 0.300, 74.2, 'Dog', '/images/CannedFood13.png');
+(13, 'Almo Nature Daily Dog Chicken Ham Cheese', 'Adult', 1.48, 0.300, 74.2, 'Dog', '/images/CannedFood13.png'),
+(14, 'Brit Care Cat Fillets In Jelly With Salmon', 'Kitten', 1.04, 0.85, 84, 'Cat', '/images/CatCannedFood14.png'),
+(15, 'Brit Care Cat Fillets In Gravy With Duck', 'Junior', 1.04, 0.85, 84, 'Cat', '/images/CatCannedFood15.png'),
+(16, 'Brit Care Cat Fillets In Gravy With Duck', 'Adult', 1.04, 0.85, 84, 'Cat', '/images/CatCannedFood15.png'),
+(17, 'Brit Care Cat Fillets In Gravy With Duck', 'Senior', 1.04, 0.85, 84, 'Cat', '/images/CatCannedFood15.png'),
+(18, 'Brit Care Cat Fillets In Gravy With Salmon', 'Junior', 1.04, 0.85, 81, 'Cat', '/images/CatCannedFood18.png'),
+(19, 'Brit Care Cat Fillets In Gravy With Salmon', 'Adult', 1.04, 0.85, 81, 'Cat', '/images/CatCannedFood18.png'),
+(20, 'Brit Care Cat Fillets In Gravy With Salmon', 'Senior', 1.04, 0.85, 81, 'Cat', '/images/CatCannedFood18.png'),
+(21, 'Brit Care Cat Fillets In Gravy With Turkey and Shrimps', 'Junior', 2.0, 0.85, 81, 'Cat', '/images/CatCannedFood21.png'),
+(22, 'Brit Care Cat Fillets In Gravy With Turkey and Shrimps', 'Adult', 2.0, 0.85, 81, 'Cat', '/images/CatCannedFood21.png'),
+(23, 'Brit Care Cat Fillets In Gravy With Turkey and Shrimps', 'Senior', 2.0, 0.85, 81, 'Cat', '/images/CatCannedFood21.png'),
+(24, 'Brit Care Cat Fillets In Gravy With Tuna', 'Junior', 1.30, 0.85, 77, 'Cat', '/images/CatCannedFood24.png'),
+(25, 'Brit Care Cat Fillets In Gravy With Tuna', 'Adult', 1.30, 0.85, 77, 'Cat', '/images/CatCannedFood24.png'),
+(26, 'Brit Care Cat Fillets In Gravy With Tuna', 'Senior', 1.30, 0.85, 77, 'Cat', '/images/CatCannedFood24.png');
+
+
 
 INSERT INTO canned_food_ingredients_entity (ingredient_id, canned_id, ingredient_name) VALUES
 (8, 1, 'Deer'),
@@ -104,19 +119,35 @@ INSERT INTO canned_food_ingredients_entity (ingredient_id, canned_id, ingredient
 (9, 3, 'Wild Boar'),
 (9, 4, 'Wild Boar'),
 (10, 5, 'Salmon'),
+(10, 14, 'Salmon'),
 (7, 5, 'Turkey'),
 (10, 6, 'Salmon'),
+(10, 18, 'Salmon'),
+(10, 19, 'Salmon'),
+(10, 20, 'Salmon'),
 (7, 7, 'Turkey'),
+(7, 21, 'Turkey'),
+(7, 22, 'Turkey'),
+(7, 23, 'Turkey'),
 (3, 8, 'Duck'),
+(3, 15, 'Duck'),
+(3, 16, 'Duck'),
+(3, 17, 'Duck'),
 (11, 9, 'Pheasant'),
 (12, 10, 'Tuna'),
+(12, 24, 'Tuna'),
+(12, 25, 'Tuna'),
+(12, 26, 'Tuna'),
 (13, 10, 'Cod'),
 (12, 11, 'Tuna'),
 (2, 11, 'Chicken'),
 (4, 12, 'Pork'),
 (2, 13, 'Chicken'),
 (4, 13, 'Pork'),
-(14, 13, 'Cheese');
+(14, 13, 'Cheese'),
+(15,21, 'Shrimp'),
+(15,22, 'Shrimp'),
+(15,23, 'Shrimp');
 
 INSERT INTO dry_food_ingredients_entity (ingredient_id, dry_id, ingredient_name) VALUES
 (1, 1, 'Lamb'),
@@ -250,4 +281,5 @@ INSERT INTO allergic_foods_entity (allergic_id, ingredient_id, allergic_name) VA
 (11, 10, 'Pheasant'),
 (12, 12, 'Tuna'),
 (13, 13, 'Cod'),
-(14, 14, 'Cheese');
+(14, 14, 'Cheese'),
+(15, 15, 'Shrimp');

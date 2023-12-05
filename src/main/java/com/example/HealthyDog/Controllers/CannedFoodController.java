@@ -74,7 +74,7 @@ public class CannedFoodController {
     @GetMapping("/cannedfoods")
     public String showCannedFoods(Model model,
                                   @RequestParam(defaultValue = "0") int page,
-                                  @RequestParam(defaultValue = "13") int size) {
+                                  @RequestParam(defaultValue = "26") int size) {
         Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
         model.addAttribute("options", options);
         Page<CannedFoodEntity> cannedFoods = cannedFoodService.getTopCannedFoods(page, size);
