@@ -48,6 +48,7 @@ CREATE TABLE canned_food_entity (
    canned_price DOUBLE NOT NULL,
    canned_weight DOUBLE NOT NULL,
    canned_calorie DOUBLE NOT NULL,
+   image_name VARCHAR(255) NOT NULL,
    canned_food_pet_type ENUM ('Dog', 'Cat'),
    CONSTRAINT pk_cannedfoodentity PRIMARY KEY (canned_id)
 );

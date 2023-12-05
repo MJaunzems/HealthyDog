@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Animal</title>
 </head>
 <body>
 
@@ -21,6 +20,9 @@
     <tr th:each="cannedFood : ${cannedFoods}">
         <td th:text="${cannedFood.cannedId}"></td>
         <td th:text="${cannedFood.cannedCompany}"></td>
+        <td>
+            <img width="300px" height="300x" th:src="${cannedFood.cannedImageName}">
+        </td>
     </tr>
     </tbody>
 </table>
