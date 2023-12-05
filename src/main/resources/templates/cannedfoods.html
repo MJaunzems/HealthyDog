@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Animal</title>
+</head>
+<body>
+
+<h2>Canned Dog Food List:</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Company</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cannedFood : ${cannedFoods}">
+        <td th:text="${cannedFood.cannedId}"></td>
+        <td th:text="${cannedFood.cannedCompany}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

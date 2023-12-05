@@ -34,9 +34,10 @@ public class DryFoodEntity {
     public DryFoodEntity(long dryId, String dryCompany, String dryFoodAgeType, double dryPrice, double dryWeight, String dryFoodPetType, String imageName) {
         this.dryId = dryId;
         this.dryCompany = dryCompany;
-        this.dryFoodAgeType = dryFoodPetType;
+        this.dryFoodAgeType = dryFoodAgeType;
         this.dryPrice = dryPrice;
         this.dryWeight = dryWeight;
         this.dryFoodPetType = dryFoodPetType;
+        this.imageName = imageName;
     }
 }
