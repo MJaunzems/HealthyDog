@@ -33,4 +33,5 @@ public class UserEntity {
         this.userPhone = userPhone;
         this.userPassword = userPassword;
     }
+
 }

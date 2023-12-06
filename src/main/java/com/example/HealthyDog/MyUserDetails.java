@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MyUserDetails implements UserDetails {
+public class MyUserDetails extends UserEntity implements UserDetails {
 
     private long userId;
     private List<GrantedAuthority> authorities;
@@ -45,6 +45,8 @@ public class MyUserDetails implements UserDetails {
         return userNickname;
     }
 
+    public String getEmail() {return userEmail;}
+    public int getPhone() {return userPhone;}
     @Override
     public boolean isAccountNonExpired() {
         return true;
