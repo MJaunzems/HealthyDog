@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <title>ProcessType</title>
+    <title>My Project Information</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,6 +82,7 @@
         }
     </style>
 </head>
+
 <body class="d-flex flex-column align-items-center">
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">HealthyDog</a>
@@ -94,41 +95,40 @@
                 <a class="nav-link" href="#">SignUp</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contacts">About</a>
+                <a class="nav-link" href="#">About</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<div class="title-container">
-    <h1 class="text-center">Welcome to animal nutrition app!</h1>
-</div>
+<div class="container mt-5">
+    <br><br><br><br>
+    <h2 class="text-center text-white">About our project</h2>
+    <br><br>
+    <div class="mb-4 text-white">
+        <h4 class="text-left">Project Description:</h4>
+        <p class="text-left fs-5 fw-bold">HealthyDog is a web application</p>
+        <p class="text-left fs-5 fw-bold">that allows the owner to choose food for his pet</p>
+        <p class="text-left fs-5 fw-bold">and calculate the required amount of daily intake</p>
+    </div>
 
-<div class="card-container">
-    <div class="card text-center">
-        <div class="card-body">
-            <h2 class="card-title">Choose type of pet:</h2>
-            <form action="/processType" onsubmit="return navigateToPage2()" method="post" class="text-center">
-                <div class="checkbox-group">
-                    <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" name="type" id="cat" value="cat">
-                        <label class="form-check-label" for="cat">Cat</label>
-                    </div>
+    <div class="mb-4 text-white">
+        <h4>Project Team:</h4>
+        <ul>
+            <li>Jana Shvets - Developer</li>
+            <li>Martinsh Jaunzems - Developer</li>
+            <li>Tatjana Vlasova - Developer</li>
+        </ul>
+    </div>
 
-                    <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" name="type" id="dog" value="dog">
-                        <label class="form-check-label" for="dog">Dog</label>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary submit-button">Submit</button>
-            </form>
-        </div>
+    <div class="mb-4 text-white">
+        <h4>Contact Information:</h4>
+        <p>Email: happydogcorp@gmail.com</p>
     </div>
 </div>
-
 <div class="footer">
-    <p>Developed by Jana Shvets, Martinsh Jaunzems and Tatjana Vlasova | Technologies: HTML, CSS, Bootstrap, Thymeleaf, SpringBoot, Java etc.</p>
+    <p>Developed by Jana Shvets, Martinsh Jaunzems and Tatjana Vlasova | Technologies: HTML, CSS, Bootstrap, Thymeleaf,
+        SpringBoot, Java etc.</p>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
