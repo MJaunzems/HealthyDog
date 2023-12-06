@@ -39,6 +39,20 @@ CREATE TABLE dry_food_entity (
    CONSTRAINT pk_dryfoodentity PRIMARY KEY (dry_id)
 );
 
+DROP TABLE IF EXISTS food_entity;
+
+CREATE TABLE food_entity(
+    id BIGINT NOT NULL,
+    company VARCHAR(255) NULL,
+    age_type ENUM ('Kitten', 'Puppy', 'Junior', 'Adult', 'Senior'),
+    price DOUBLE NOT NULL,
+    weight DOUBLE NOT NULL,
+    calorie DOUBLE NOT NULL,
+    img_name VARCHAR(255) NOT NULL,
+    pet_type ENUM ('Dog', 'Cat'),
+    CONSTRAINT pk_foodentity PRIMARY KEY (id)
+);
+
 DROP TABLE IF EXISTS canned_food_entity;
 
 CREATE TABLE canned_food_entity (

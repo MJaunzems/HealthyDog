@@ -72,17 +72,10 @@ li {
                     <th>Pet Type</th>
                     <th>Image</th>
                 </tr>
-                <tr th:each="dryFood : ${dryFoods}">
-                    <td th:text="${dryFood.dryId}"></td>
-                    <td th:text="${dryFood.dryCompany}"></td>
-                    <td th:text="${dryFood.dryFoodAgeType}"></td>
-                    <td th:text="${dryFood.dryPrice}"></td>
-                    <td th:text="${dryFood.dryWeight}"></td>
-                    <td th:text="${dryFood.dryFoodPetType}"></td>
-                    <td>
-                        <img width="200px" height="200x" th:src="${dryFood.imageName}">
-                    </td>
-                </tr>
+                <li th:each="result : ${foodResults}">
+                    <span th:text="'Food: ' + ${result.foodName}"></span>
+                    <span th:text="' | Grams: ' + ${result.foodGrams}"></span>
+                </li>
             </table>
         </div>
 

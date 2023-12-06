@@ -32,6 +32,7 @@ public class DryFoodController {
     public ModelAndView form(@RequestParam String type, HttpSession session) {
         try {
             session.setAttribute("type", type);
+            System.out.println(dryFoodService.getById(1));
             return new ModelAndView("redirect:/dryfoods");
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred: {}", e.getMessage());

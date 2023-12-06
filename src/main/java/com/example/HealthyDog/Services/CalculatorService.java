@@ -1,6 +1,10 @@
 package com.example.HealthyDog.Services;
 
+import com.example.HealthyDog.Entities.FoodEntity;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CalculatorService {
@@ -43,5 +47,13 @@ public class CalculatorService {
             default:
                 throw new IllegalArgumentException("Invalid activity level");
         }
+    }
+
+    public List<FoodEntity> filterFoods(List<FoodEntity> allFoods, HttpSession session) {
+        return null;
+    }
+
+    public double calculateFoodGrams(double dailyCalories, double foodCalorieContent) {
+        return dailyCalories / foodCalorieContent;
     }
 }
