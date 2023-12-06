@@ -36,9 +36,11 @@ public class SecurityConfig {
                         .ignoringRequestMatchers(toH2Console())
                         .disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/processForm", "/processType", "/dryfoods", "/error").permitAll()
-                        .requestMatchers(toH2Console()).permitAll()
+                        //.requestMatchers("/", "/processForm", "/processType", "/dryfoods", "/error").permitAll()
+                        .requestMatchers("/profile/**").authenticated()
+                        //.requestMatchers(toH2Console()).permitAll()
                         .requestMatchers("/admin/**").hasAuthority("ADMIN")
+                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

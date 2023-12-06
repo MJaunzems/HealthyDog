@@ -20,10 +20,21 @@
         <input type="email" id="email" th:field="*{email}" required>
 
         <label for="phone">Phone number:</label>
-        <input type="number" id="phone" th:field="*{phone}" required>
+        <input type="tel" id="phone" th:field="*{phone}" required>
 
         <button type="submit">Update Profile</button>
     </form>
+
+    <form th:action="@{/profile/change-password}" method="post">
+        <label for="currentPassword">Current Password:</label>
+        <input type="password" id="currentPassword" name="currentPassword" required>
+
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+
+        <button type="submit">Change Password</button>
+    </form>
+
 </div>
 </body>
 </html>
