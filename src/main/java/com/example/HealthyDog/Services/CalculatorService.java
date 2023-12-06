@@ -26,13 +26,6 @@ public class CalculatorService {
         return rer * k;
     }
 
-    public double calculateDryFoodGrams(double dailyCalories, double dryFoodCalorieContent) {
-        return dailyCalories / dryFoodCalorieContent;
-    }
-
-    public double calculateCannedFoodGrams(double dailyCalories, double cannedFoodCalorieContent) {
-        return dailyCalories / cannedFoodCalorieContent;
-    }
 
     public double validateAndSetK(String activityLevel) {
         switch (activityLevel) {
@@ -62,7 +55,7 @@ public class CalculatorService {
         return filteredFoods;
     }
 
-    public double calculateFoodGrams(double dailyCalories, double foodCalorieContent, double foodWeight) {
-        return dailyCalories / (foodCalorieContent * foodWeight);
+    public double calculateFoodGrams(double dailyCalories, double foodCalorieContent) {
+        return (dailyCalories / foodCalorieContent) * 100 ;
     }
 }

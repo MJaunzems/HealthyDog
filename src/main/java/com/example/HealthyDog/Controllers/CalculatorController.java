@@ -50,7 +50,7 @@ public class CalculatorController {
             for (FoodEntity food : filteredFoods) {
                 double foodCalorieContent = food.getCalorie();
                 double foodWeight = food.getWeight();
-                double foodGrams = calculatorService.calculateFoodGrams(dailyCalories, foodCalorieContent, foodWeight);
+                double foodGrams = calculatorService.calculateFoodGrams(dailyCalories, foodCalorieContent);
                 foodResults.add(new FoodDTO(food.getCompany(), foodGrams, dailyCalories));
             }
             Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
