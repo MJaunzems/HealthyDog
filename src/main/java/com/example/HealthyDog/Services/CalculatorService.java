@@ -5,6 +5,8 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Service
 public class CalculatorService {
@@ -49,11 +51,18 @@ public class CalculatorService {
         }
     }
 
-    public List<FoodEntity> filterFoods(List<FoodEntity> allFoods, HttpSession session) {
-        return null;
+    public List<FoodEntity> filterFoods(List<FoodEntity> allFoods, HttpSession session){
+        Predicate<FoodEntity> filterPredicate = food ->
+                (session.getAttribute("type").equals(food.getPetType()));
+        List<FoodEntity> filteredFoods = allFoods.stream()
+                .filter(filterPredicate)
+                .collect(Collectors.toList());
+        System.out.println(allFoods);
+        System.out.println(filteredFoods);
+        return filteredFoods;
     }
 
-    public double calculateFoodGrams(double dailyCalories, double foodCalorieContent) {
-        return dailyCalories / foodCalorieContent;
+    public double calculateFoodGrams(double dailyCalories, double foodCalorieContent, double foodWeight) {
+        return dailyCalories / (foodCalorieContent * foodWeight);
     }
 }

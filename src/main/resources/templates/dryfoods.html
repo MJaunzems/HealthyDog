@@ -72,10 +72,14 @@ li {
                     <th>Pet Type</th>
                     <th>Image</th>
                 </tr>
-                <li th:each="result : ${foodResults}">
-                    <span th:text="'Food: ' + ${result.foodName}"></span>
-                    <span th:text="' | Grams: ' + ${result.foodGrams}"></span>
-                </li>
+                <div th:each="result : ${foodResults}">
+                    <tr>
+                    <td th:text ="'Company: ' + ${result.companyName}"></td>
+                    <td th:text ="'Grams: ' + ${result.grams}"></td>
+                        <td th:text ="'Daily calories: ' + ${result.daily}"></td>
+                    </tr>
+                </div>
+
             </table>
         </div>
 
