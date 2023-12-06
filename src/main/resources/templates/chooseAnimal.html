@@ -4,72 +4,131 @@
     <title>ProcessType</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
 
     <style>
         body {
             background-color: #a4ac86;
             background-image: url('https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin-top: 20px;
+            margin: 0;
         }
 
         .text-center {
             text-align: center;
         }
 
-        h1{
-        margin-top: -300px;
-        font-family: Arial, Helvetica, sans-serif;
+        h1 {
+            margin-top: 14%;
+            font-family: 'Young Serif', serif;
+            font-weight: bold;
         }
 
-
-        .form-inline {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .card-container {
+            margin-top: 13%;
+            width: 30%;
+            font-family: 'Young Serif', serif;
         }
 
         .checkbox-group {
             display: flex;
-            flex-direction: row;
             justify-content: center;
         }
 
-        .form-check-inline {
-            margin: 0 10px;
+        .form-check {
+            margin: 10px;
         }
 
-        button {
+        .submit-button {
             margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .navbar {
+            background-color: #3498db;
+            color: #fff;
+            font-size: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #fff;
+        }
+
+        .navbar-nav ml-auto {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: rgba(52, 152, 219, 0.5);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            transition: background-color 0.5s ease;
+        }
+
+        .footer:hover {
+            background-color: #3498db;
         }
     </style>
 </head>
 <body class="d-flex flex-column align-items-center">
-<div class="title-container">
-    <h1 class="text-center">Healthy Dog</h1>
-</div>
-<div class="text-center mb-4">
-    <h2>Choose type of pet:</h2>
-<form action="/processType" onsubmit="return navigateToPage2()" method="post" class="form-inline">
-    <div class="checkbox-group">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="cat" value="cat">
-            <label class="form-check-label" for="cat">Cat</label>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">HealthyDog</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">LogIn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">SignUp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contacts</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" id="dog" value="dog">
-            <label class="form-check-label" for="dog">Dog</label>
+<div class="title-container">
+    <h1 class="text-center">Welcome to animal nutrition app!</h1>
+</div>
+
+<div class="card-container">
+    <div class="card text-center">
+        <div class="card-body">
+            <h2 class="card-title">Choose type of pet:</h2>
+            <form action="/processType" onsubmit="return navigateToPage2()" method="post" class="text-center">
+                <div class="checkbox-group">
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="radio" name="type" id="cat" value="cat">
+                        <label class="form-check-label" for="cat">Cat</label>
+                    </div>
+
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="radio" name="type" id="dog" value="dog">
+                        <label class="form-check-label" for="dog">Dog</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary submit-button">Submit</button>
+            </form>
         </div>
     </div>
+</div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="footer">
+    <p>Developed by Jana Shvets, Martinsh Jaunzems and Tatjana Vlasova | Technologies: HTML, CSS, Bootstrap, Thymeleaf, SpringBoot, Java etc.</p>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
