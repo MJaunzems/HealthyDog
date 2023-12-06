@@ -36,4 +36,13 @@ public class CannedFoodService {
         return cannedFoodRepository.findAll(pageRequest);
 
     }
+
+    public List<CannedFoodEntity> getAllCannedFoods() {
+        try {
+            return cannedFoodRepository.findAll();
+        } catch (Exception e) {
+            logger.error("Error occurred while fetching all canned foods", e);
+            throw new RuntimeException("Error occurred while fetching all canned foods", e);
+        }
+    }
 }

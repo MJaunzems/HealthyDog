@@ -22,32 +22,30 @@
             text-align: center;
         }
 
-        h1 {
-            margin-top: -300px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
+        h1{
+        margin-top: -300px;
+        font-family: Arial, Helvetica, sans-serif;
         }
 
-        .card-container {
-            margin-top: 20px;
-            width: 30%;
-            height: auto;
+
+        .form-inline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .checkbox-group {
             display: flex;
+            flex-direction: row;
             justify-content: center;
         }
 
-        .form-check {
-            margin: 10px;
+        .form-check-inline {
+            margin: 0 10px;
         }
 
-        .submit-button {
+        button {
             margin-top: 10px;
-            display: block; /* Новое свойство для выравнивания по центру */
-            margin-left: auto;
-            margin-right: auto;
         }
     </style>
 </head>
@@ -55,27 +53,23 @@
 <div class="title-container">
     <h1 class="text-center">Healthy Dog</h1>
 </div>
-<div class="card-container">
-    <div class="card text-center">
-        <div class="card-body">
-            <h2 class="card-title">Choose type of pet:</h2>
-            <form action="/processType" onsubmit="return navigateToPage2()" method="post" class="text-center">
-                <div class="checkbox-group">
-                    <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" name="type" id="cat" value="cat">
-                        <label class="form-check-label" for="cat">Cat</label>
-                    </div>
+<div class="text-center mb-4">
+    <h2>Choose type of pet:</h2>
+<form action="/processType" onsubmit="return navigateToPage2()" method="post" class="form-inline">
+    <div class="checkbox-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="cat" value="cat">
+            <label class="form-check-label" for="cat">Cat</label>
+        </div>
 
-                    <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" name="type" id="dog" value="dog">
-                        <label class="form-check-label" for="dog">Dog</label>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary submit-button">Submit</button>
-            </form>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="type" id="dog" value="dog">
+            <label class="form-check-label" for="dog">Dog</label>
         </div>
     </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
