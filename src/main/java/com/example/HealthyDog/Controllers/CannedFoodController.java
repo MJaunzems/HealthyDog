@@ -44,7 +44,7 @@ public class CannedFoodController {
         }
     }
     @PostMapping("/secondProcessType")
-    public ModelAndView form(@RequestParam String type, HttpSession session){
+    public ModelAndView form(@RequestParam String type, HttpSession session) {
         session.setAttribute("type", type);
         return new ModelAndView("redirect:/cannedfoods");
     }
@@ -55,7 +55,7 @@ public class CannedFoodController {
                              @RequestParam int age,
                              @RequestParam String allergies,
                              @RequestParam double price,
-                             HttpSession session){
+                             HttpSession session) {
         session.setAttribute("activity", activity);
         session.setAttribute("weight", weight);
         session.setAttribute("age", age);
@@ -64,11 +64,6 @@ public class CannedFoodController {
         return new ModelAndView("redirect:/cannedfoods");
     }
 
-
-//    @GetMapping("/findByCannedCompany/{cannedCompany}")
-//    public List<CannedFoodEntity> findByCannedCompany(@PathVariable String cannedCompany) {
-//        return cannedFoodService.findByCannedCompany(cannedCompany);
-//    }
 
 
     @GetMapping("/cannedfoods")
