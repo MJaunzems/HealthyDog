@@ -6,10 +6,11 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         body {
-            background-color: #7b9e54;
-            background-image: url("https://www.transparenttextures.com/patterns/wood.png");
+            background-color: #7aadc4;
+            background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
             margin: 0;
             padding: 0;
+            font-family: 'Young Serif', serif;
         }
 
          main {
@@ -38,14 +39,15 @@
         }
 
         .navbar {
-            background-color: #86ab78;
+            background-color: #3498db;
             color: #fff;
-            font-size: 120%;
+            font-family: 'Young Serif', serif;
+            font-size: 140%;
             width: 100%;
             position: fixed;
             top: 0;
             z-index: 1000;
-            margin-bottom: 10px;
+            margin-bottom: 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -164,8 +166,8 @@
                     <input type="submit" value="Submit" class="btn btn-primary btn-sm">
                     <br>
                     <div class="new-buttons">
-                        <a th:href="@{/dryfoods}" class="btn btn-success">Dry Foods</a>
-                        <a th:href="@{/cannedfoods}" class="btn btn-success">Canned Foods</a>
+                        <a th:href="@{/drylist}" class="btn btn-success">Dry Foods</a>
+                        <a th:href="@{/cannedlist}" class="btn btn-success">Canned Foods</a>
                     </div>
                 </form>
             </div>

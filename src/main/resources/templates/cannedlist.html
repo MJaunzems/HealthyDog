@@ -5,59 +5,68 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+
         body {
-            background-color: #a4ac86;
-            margin: 0;
-            padding: 0;
-        }
+           background-color: #7aadc4;
+           background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
+           margin: 0;
+           padding: 0;
+           font-family: 'Young Serif', serif;
+       }
+
         main {
-            min-height: 100vh;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            background-color: #3498db;
-            color: #936639;
-        }
+           min-height: 100vh;
+           padding-top: 5%;
+           padding-bottom: 20px;
+       }
+       .navbar {
+           background-color: #3498db;
+           color: #fff;
+           font-size: 140%;
+           width: 100%;
+           position: fixed;
+           top: 0;
+           z-index: 1000;
+       }
 
-        .fixed-buttons {
-        position: fixed;
-        left: 10px;
-        top: 15px;
-    }
+       .navbar a {
+           color: #fff;
+       }
 
-    .exit-link {
-        position: fixed;
-        right: 10px;
-        top: 15px;
-        font-size: 26px;
-    }
+       .navbar-nav ml-auto {
+           list-style: none;
+       }
 
-    .move-left {
-        left: -100px;
-        }
+       .table-background {
+           background-color: #ffffff;
+           padding: 10px;
+       }
 
-        .btn-primary {
-            padding: 10px 20px;
-        }
-
-        .btn-success {
-            padding: 10px 20px;
-        }
-
-        ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 5px;
-}
 
 
     </style>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/choose-animal">HealthyDog</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Print</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Save</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/choose-animal">Exit</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main>
 <div class="container vh-100 mt-4">
     <h1>Canned Food list</h1>
     <div class="row">
@@ -83,12 +92,9 @@ li {
                 </tr>
             </table>
         </div>
-
-            <a href="#" class="exit-link">Exit</a>
-
         </div>
     </div>
-</div>
+</main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
