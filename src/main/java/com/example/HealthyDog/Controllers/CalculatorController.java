@@ -9,18 +9,19 @@ import com.example.HealthyDog.Services.CannedFoodService;
 import com.example.HealthyDog.Services.DryFoodService;
 import com.example.HealthyDog.Services.PdfService;
 import jakarta.servlet.http.HttpSession;
-
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Controller
 public class CalculatorController {
@@ -39,6 +40,7 @@ public class CalculatorController {
     @Autowired
     private PdfService pdfService;
 
+    private final List<FoodDTO> MENU = new ArrayList<>();
 
     @GetMapping("/calculate")
     public String calculate(Model model, HttpSession session) {
@@ -60,6 +62,8 @@ public class CalculatorController {
             foodResults.add(new FoodDTO(food.getCompany(), Math.round(foodGrams), food.getWeight(), food.getImageName(), food.getPrice()));
         }
 
+        MENU.addAll(foodResults);
+
         Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
 
         model.addAttribute("options", options);
@@ -77,14 +81,18 @@ public class CalculatorController {
 
     @GetMapping("/generate-pdf")
     public String generatePdfReport(Model model) {
-        List<FoodDTO> foodResults = new ArrayList<>();
-        try {
-            pdfService.generatePdf(foodResults);
-            model.addAttribute("message", "PDF report generated successfully!");
-        } catch (Exception e) {
-            model.addAttribute("error", "Error generating PDF report: " + e.getMessage());
+
+        if (!MENU.isEmpty()) {
+            try {
+                pdfService.generatePdf(MENU);
+                model.addAttribute("message", "PDF report generated successfully!");
+            } catch (Exception e) {
+                model.addAttribute("error", "Error generating PDF report: " + e.getMessage());
+            }
+            return "dryfoods";
+        } else {
+            return "error";
         }
-        return "dryfoods";
     }
 
 }

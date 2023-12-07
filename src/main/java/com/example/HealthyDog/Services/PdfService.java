@@ -23,22 +23,21 @@ public class PdfService {
         document.add(new Paragraph("Report food calculation! " + new Date()));
         document.add(new Paragraph(" "));
 
-        PdfPTable table = new PdfPTable(5);
+        PdfPTable table = new PdfPTable(4);
 
         table.addCell("Company");
         table.addCell("Grams");
         table.addCell("Weight");
-        table.addCell("Image");
         table.addCell("Price");
 
         for (FoodDTO food : foodResults) {
             table.addCell(food.getCompanyName());
             table.addCell(String.valueOf(food.getGrams()));
             table.addCell(String.valueOf(food.getWeight()));
-            table.addCell(food.getPhoto());
             table.addCell(String.valueOf(food.getPrice()));
         }
         document.add(table);
         document.close();
     }
+
 }
