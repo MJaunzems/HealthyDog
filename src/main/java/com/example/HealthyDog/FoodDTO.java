@@ -12,7 +12,8 @@ import lombok.Setter;
 public class FoodDTO {
     private String companyName;
     private double grams;
-    private double daily;
-    private String ageType;
+    private double weight;
+    private String photo;
+    private double price;
 
 }

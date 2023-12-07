@@ -50,15 +50,12 @@ public class CalculatorController {
             List<FoodDTO> foodResults = new ArrayList<>();
             for (FoodEntity food : filteredFoods) {
                 double foodCalorieContent = food.getCalorie();
-                double foodWeight = food.getWeight();
-                String foodAgeType = food.getAgeType();
                 double foodGrams = calculatorService.calculateFoodGrams(dailyCalories, foodCalorieContent);
-                foodResults.add(new FoodDTO(food.getCompany(), foodGrams, dailyCalories, foodAgeType));
+                foodResults.add(new FoodDTO(food.getCompany(), Math.round(foodGrams), food.getWeight(),food.getImageName(), food.getPrice()));
             }
             Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
             model.addAttribute("options", options);
             model.addAttribute("foodResults", foodResults);
-            model.addAttribute("daily",dailyCalories);
             return "dryfoods";
         /*} catch (IllegalArgumentException e) {
             LOGGER.error("Invalid input: {}", e.getMessage());

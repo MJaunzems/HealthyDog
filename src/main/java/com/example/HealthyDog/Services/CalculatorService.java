@@ -64,7 +64,7 @@ public class CalculatorService {
                     break;
                 }
             }
-            if (matchesAge && matchesAge && !hasAllergy) {
+            if (matchesAge && matchesType && !hasAllergy) {
                 filteredFoods.add(food);
             }
         }

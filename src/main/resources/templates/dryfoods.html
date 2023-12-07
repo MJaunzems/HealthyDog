@@ -64,20 +64,21 @@ li {
             <h1>Calculated dry food for your dog</h1>
             <table border="1" class="table table-striped">
                 <tr>
-                    <th>ID</th>
-                    <th>Company</th>
-                    <th>Age Type</th>
-                    <th>Price</th>
-                    <th>Weight</th>
-                    <th>Pet Type</th>
                     <th>Image</th>
+                    <th>Product</th>
+                    <th>Weight</th>
+                    <th>Price</th>
+                    <th>Grams</th>
                 </tr>
                 <div th:each="result : ${foodResults}">
                     <tr>
-                    <td th:text ="'Company: ' + ${result.companyName}"></td>
-                    <td th:text ="'Grams: ' + ${result.grams}"></td>
-                        <td th:text ="'Daily calories: ' + ${result.daily}"></td>
-                        <td th:text ="'Age type: ' + ${result.ageType}"></td>
+                        <td>
+                            <img th:src="${result.photo}" alt="Food Image" style="width: 200px; height: auto;"/>
+                        </td>
+                        <td th:text ="${result.companyName}"></td>
+                        <td th:text ="${result.weight} + 'kg'"></td>
+                        <td th:text ="${result.price} + '€'"></td>
+                        <td th:text ="${result.grams} + 'g'"></td>
                     </tr>
                 </div>
 
