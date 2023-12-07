@@ -45,15 +45,13 @@ public class DryFoodController {
     public ModelAndView form(@RequestParam String activity,
                              @RequestParam double weight,
                              @RequestParam String age,
-                             @RequestParam List<String> allergies,
-                             @RequestParam double price,
+                             @RequestParam (value = "allergies", required = false) List<String> allergies,
                              HttpSession session) {
         try {
             session.setAttribute("activity", activity);
             session.setAttribute("weight", weight);
             session.setAttribute("age", age);
             session.setAttribute("allergies", allergies);
-            session.setAttribute("price", price);
             return new ModelAndView("redirect:/calculate");
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred: {}", e.getMessage());

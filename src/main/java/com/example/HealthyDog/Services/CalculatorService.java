@@ -47,21 +47,23 @@ public class CalculatorService {
     }
 
     public List<FoodEntity> filterFoods(List<FoodEntity> allFoods, HttpSession session) {
-        List<String> allergies = (List<String>) session.getAttribute("allergies");
         List<FoodEntity> filteredFoods = new ArrayList<>();
+        List<String> allergies = (List<String>) session.getAttribute("allergies");
+        boolean noAllergies = (allergies == null || allergies.isEmpty());
+
         for (FoodEntity food : allFoods) {
             boolean matchesType = session.getAttribute("type").equals(food.getPetType());
             boolean matchesAge = session.getAttribute("age").equals(food.getAgeType());
             boolean hasAllergy = false;
-
-            List<FoodIngredientsEntity> ingredients = dryFoodService.getAllIngredientsById(food.getId());
-            List<String> ingredientNames = ingredients.stream()
-                    .map(FoodIngredientsEntity::getIngredientName).toList();
-
-            for (String allergie : allergies) {
-                if (ingredientNames.contains(allergie)) {
-                    hasAllergy = true;
-                    break;
+            if (!noAllergies) {
+                List<FoodIngredientsEntity> ingredients = dryFoodService.getAllIngredientsById(food.getId());
+                List<String> ingredientNames = ingredients.stream()
+                        .map(FoodIngredientsEntity::getIngredientName).toList();
+                for (String allergie : allergies) {
+                    if (ingredientNames.contains(allergie)) {
+                        hasAllergy = true;
+                        break;
+                    }
                 }
             }
             if (matchesAge && matchesType && !hasAllergy) {
