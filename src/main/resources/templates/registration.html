@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>ProcessType</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,7 +92,7 @@
                 <a class="nav-link" href="/login">LogIn</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/registration">SignUp</a>
+                <a class="nav-link" href="#">SignUp</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/contacts">About</a>
@@ -100,30 +100,38 @@
         </ul>
     </div>
 </nav>
-
-<div class="title-container">
-    <h1 class="text-center">Welcome to animal nutrition app!</h1>
-</div>
-
-<div class="card-container">
-    <div class="card text-center">
-        <div class="card-body">
-            <h2 class="card-title">Choose type of pet:</h2>
-            <form action="/processType" onsubmit="return navigateToPage2()" method="post" class="text-center">
-                <div class="checkbox-group">
-                    <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" name="type" id="cat" value="Cat">
-                        <label class="form-check-label" for="cat">Cat</label>
-                    </div>
-
-                    <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" name="type" id="dog" value="Dog">
-                        <label class="form-check-label" for="dog">Dog</label>
-                    </div>
+<div class="container mt-5">
+    <br><br><br><br>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+                <div class="card-header">
+                    <h1 class="mb-0 text-center">Registration</h1>
                 </div>
 
-                <button type="submit" class="btn btn-primary submit-button">Submit</button>
-            </form>
+                <form th:action="@{/registration}" method="post">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userPhone">Phone number:</label>
+                            <input type="number" class="form-control" id="userPhone" name="userPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm password:</label>
+                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
         </div>
     </div>
 </div>
@@ -143,3 +151,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
