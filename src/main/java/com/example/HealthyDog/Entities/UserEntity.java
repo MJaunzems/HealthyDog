@@ -25,6 +25,7 @@ public class UserEntity {
     @Column(name="user_password")
     private String userPassword;
 
+
     public UserEntity(long userId, String userRole, String userNickname, String userEmail, int userPhone, String userPassword) {
         this.userId = userId;
         this.userRole = userRole;
@@ -34,4 +35,7 @@ public class UserEntity {
         this.userPassword = userPassword;
     }
 
+    public void setRoles(String userRole) {
+        this.userRole = userRole;
+    }
 }
