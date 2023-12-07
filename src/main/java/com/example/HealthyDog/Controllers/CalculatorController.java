@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.InputStream;
@@ -44,7 +45,6 @@ public class CalculatorController {
 
     @GetMapping("/calculate")
     public String calculate(Model model, HttpSession session) {
-
         if (session.getAttribute("weight") == null || session.getAttribute("activity") == null) {
             session.setAttribute("weight", 10.0);
             session.setAttribute("activity", "medium_active");
@@ -70,13 +70,6 @@ public class CalculatorController {
         model.addAttribute("foodResults", foodResults);
 
         return "dryfoods";
-        /*} catch (IllegalArgumentException e) {
-            LOGGER.error("Invalid input: {}", e.getMessage());
-            return new ModelAndView("redirect:/error?message=Invalid input. Please check your request.");
-        } catch (Exception e) {
-            LOGGER.error("An unexpected error occurred: {}", e.getMessage());
-            return new ModelAndView("redirect:/error?message=An unexpected error occurred. Please try again later.");
-        }*/
     }
 
     @GetMapping("/generate-pdf")
