@@ -77,6 +77,7 @@ li {
                     <td th:text ="'Company: ' + ${result.companyName}"></td>
                     <td th:text ="'Grams: ' + ${result.grams}"></td>
                         <td th:text ="'Daily calories: ' + ${result.daily}"></td>
+                        <td th:text ="'Age type: ' + ${result.ageType}"></td>
                     </tr>
                 </div>
 
@@ -98,7 +99,13 @@ li {
                 <label for="weight">Weight:</label><br>
                 <input type="number" id="weight" name="weight" placeholder="0.00"><br>
                 <label for="age">Age:</label><br>
-                <input type="number" id="age" name="age" placeholder="0"><br>
+                <select name="age" id="age">
+                    <option value="0">Select option:</option>
+                    <option value="Baby">Baby (until 6 months)</option>
+                    <option value="Junior">Junior (from 6m. to 2y.)</option>
+                    <option value="Adult">Adult (from 2y. to 8y.)</option>
+                    <option value="Senior">Senior (from 8y.)</option>
+                </select><br>
                 <p>Allergies:</p>
                 <div th:each="option : ${options}">
                     <input type="checkbox" name="allergies" th:value="${option.allergicName}"

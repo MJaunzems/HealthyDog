@@ -13,5 +13,6 @@ public class FoodDTO {
     private String companyName;
     private double grams;
     private double daily;
+    private String ageType;
 
 }

@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS dry_food_entity;
 CREATE TABLE dry_food_entity (
    dry_id BIGINT NOT NULL,
    dry_company VARCHAR(255) NULL,
-   dry_food_age_type ENUM ('Kitten', 'Puppy', 'Junior', 'Adult', 'Senior'),
+   dry_food_age_type ENUM ('Baby', 'Junior', 'Adult', 'Senior'),
    dry_price DOUBLE NOT NULL,
    dry_weight DOUBLE NOT NULL,
    dry_calorie DOUBLE NOT NULL,
@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS food_entity;
 CREATE TABLE food_entity(
     id BIGINT NOT NULL,
     company VARCHAR(255) NULL,
-    age_type ENUM ('Kitten', 'Puppy', 'Junior', 'Adult', 'Senior'),
+    age_type ENUM ('Baby', 'Junior', 'Adult', 'Senior'),
     price DOUBLE NOT NULL,
     weight DOUBLE NOT NULL,
     calorie DOUBLE NOT NULL,
@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS canned_food_entity;
 CREATE TABLE canned_food_entity (
    canned_id BIGINT NOT NULL,
    canned_company VARCHAR(255) NULL,
-   canned_food_age_type ENUM ('Kitten','Puppy', 'Junior', 'Adult', 'Senior'),
+   canned_food_age_type ENUM ('Baby', 'Junior', 'Adult', 'Senior'),
    canned_price DOUBLE NOT NULL,
    canned_weight DOUBLE NOT NULL,
    canned_calorie DOUBLE NOT NULL,
@@ -83,6 +83,15 @@ CREATE TABLE canned_food_ingredients_entity (
    canned_id BIGINT NOT NULL,
    ingredient_name VARCHAR(255) NULL,
    CONSTRAINT pk_cannedfoodingredientsentity PRIMARY KEY (ingredient_id, canned_id)
+);
+
+DROP TABLE IF EXISTS food_ingredients_entity;
+
+CREATE TABLE food_ingredients_entity(
+    ingredient_id BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    ingredient_name VARCHAR(255) NULL,
+    CONSTRAINT pk_foodingredientsentity PRIMARY KEY (ingredient_id, id)
 );
 
 DROP TABLE IF EXISTS allergic_foods_entity;

@@ -38,8 +38,9 @@ public class CalculatorController {
     public String calculate(Model model, HttpSession session) {
 
             if (session.getAttribute("weight") == null || session.getAttribute("activity") == null) {
-                session.setAttribute("weight", 15.0);
+                session.setAttribute("weight", 10.0);
                 session.setAttribute("activity", "medium_active");
+                session.setAttribute("age", "Adult");
             }
             double rer = calculatorService.calculateRER((Double) session.getAttribute("weight"));
             double k = calculatorService.validateAndSetK((String) session.getAttribute("activity"));
@@ -50,14 +51,14 @@ public class CalculatorController {
             for (FoodEntity food : filteredFoods) {
                 double foodCalorieContent = food.getCalorie();
                 double foodWeight = food.getWeight();
+                String foodAgeType = food.getAgeType();
                 double foodGrams = calculatorService.calculateFoodGrams(dailyCalories, foodCalorieContent);
-                foodResults.add(new FoodDTO(food.getCompany(), foodGrams, dailyCalories));
+                foodResults.add(new FoodDTO(food.getCompany(), foodGrams, dailyCalories, foodAgeType));
             }
             Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
             model.addAttribute("options", options);
             model.addAttribute("foodResults", foodResults);
             model.addAttribute("daily",dailyCalories);
-
             return "dryfoods";
         /*} catch (IllegalArgumentException e) {
             LOGGER.error("Invalid input: {}", e.getMessage());
