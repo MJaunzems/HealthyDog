@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +34,7 @@ public class CalculatorController {
 
     @GetMapping("/calculate")
     public String calculate(Model model, HttpSession session) {
-
+        try {
             if (session.getAttribute("weight") == null || session.getAttribute("activity") == null) {
                 session.setAttribute("weight", 10.0);
                 session.setAttribute("activity", "medium_active");
@@ -57,13 +55,11 @@ public class CalculatorController {
             model.addAttribute("options", options);
             model.addAttribute("foodResults", foodResults);
             return "dryfoods";
-        /*} catch (IllegalArgumentException e) {
-            LOGGER.error("Invalid input: {}", e.getMessage());
-            return new ModelAndView("redirect:/error?message=Invalid input. Please check your request.");
         } catch (Exception e) {
-            LOGGER.error("An unexpected error occurred: {}", e.getMessage());
-            return new ModelAndView("redirect:/error?message=An unexpected error occurred. Please try again later.");
-        }*/
+            LOGGER.error("The Mistake happened during the calculation", e);
+            model.addAttribute("error", "The Mistake happened during the calculation");
+            return "error";
+        }
     }
 }
 
