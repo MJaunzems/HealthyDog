@@ -104,40 +104,43 @@
     <br><br><br><br>
     <div class="row justify-content-center">
         <div class="col-md-6">
-                <div class="card-header">
-                    <h1 class="mb-0 text-center">Registration</h1>
-                </div>
+            <div class="header">
+                <h1 class="text-center">Registration</h1>
+            </div>
 
-                <form th:action="@{/registration}" method="post">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="userPhone">Phone number:</label>
-                            <input type="number" class="form-control" id="userPhone" name="userPhone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm-password">Confirm password:</label>
-                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+            <form th:action="@{/registration}" method="post">
+                <div class="body">
+                    <div class="form-group text-white">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
                     </div>
+                    <div class="form-group text-white">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group text-white">
+                        <label for="userPhone">Phone number:</label>
+                        <input type="number" class="form-control" id="userPhone" name="userPhone" required>
+                    </div>
+                    <div class="form-group text-white">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group text-white">
+                        <label for="confirm-password">Confirm password:</label>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password"
+                               required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <p>Developed by Jana Shvets, Martinsh Jaunzems and Tatjana Vlasova | Technologies: HTML, CSS, Bootstrap, Thymeleaf, SpringBoot, Java etc.</p>
+    <p>Developed by Jana Shvets, Martinsh Jaunzems and Tatjana Vlasova | Technologies: HTML, CSS, Bootstrap, Thymeleaf,
+        SpringBoot, Java etc.</p>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
