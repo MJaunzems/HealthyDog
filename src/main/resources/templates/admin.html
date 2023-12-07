@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add food</h1>
+<form th:action="@{/admin/add-food}" th:object="${foodEntity}" method="post">
+    <label for="company">Company:</label><br>
+    <input type="text" id="company" th:field="*{company}"><br>
+
+    <label for="ageType">Age Type:</label><br>
+    <select id="ageType" th:field="*{ageType}">
+        <option value="Baby">Baby</option>
+        <option value="Junior">Junior</option>
+        <option value="Adult">Adult</option>
+        <option value="Senior">Senior</option>
+    </select><br>
+
+    <label for="price">Price:</label><br>
+    <input type="number" id="price" th:field="*{price}" step="0.01"> €<br>
+
+    <label for="weight">Weight:</label><br>
+    <input type="number" id="weight" th:field="*{weight}" step="0.01"> Kg<br>
+
+    <label for="calorie">Calorie:</label><br>
+    <input type="number" id="calorie" th:field="*{calorie}" step="1"><br>
+
+    <label for="imageName">Image path:</label><br>
+    <input type="text" id="imageName" th:field="*{imageName}" placeholder="/images/..."><br>
+
+    <label for="petType">Pet Type:</label><br>
+    <select id="petType" th:field="*{petType}">
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+    </select><br><br>
+
+    <input type="submit" value="Add Food">
+</form>
+</body>
+</html>
