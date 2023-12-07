@@ -8,9 +8,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class CalculatorService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CalculatorService.class);
+
 
     private static final double RER_CONSTANT = 70.0;
     private static final double K_MINIMAL_ACTIVE = 1.2;
@@ -30,6 +35,7 @@ public class CalculatorService {
     }
 
     public double validateAndSetK(String activityLevel) {
+        try {
         switch (activityLevel) {
             case "minimal_active":
                 return K_MINIMAL_ACTIVE;
@@ -44,9 +50,14 @@ public class CalculatorService {
             default:
                 throw new IllegalArgumentException("Invalid activity level");
         }
+        } catch (IllegalArgumentException e) {
+            LOGGER.error("Unexceptionable activity level: {}", activityLevel);
+            throw e;
+        }
     }
 
     public List<FoodEntity> filterFoods(List<FoodEntity> allFoods, HttpSession session) {
+        try {
         List<FoodEntity> filteredFoods = new ArrayList<>();
         List<String> allergies = (List<String>) session.getAttribute("allergies");
         boolean noAllergies = (allergies == null || allergies.isEmpty());
@@ -71,20 +82,10 @@ public class CalculatorService {
             }
         }
         return filteredFoods;
-        /*Predicate<FoodEntity> filterPredicate = food -> {
-            boolean matchesType = session.getAttribute("type").equals(food.getPetType());
-            boolean matchesAge = session.getAttribute("age").equals(food.getAgeType());
-            for (String allergie : session.getAttribute("allergies")){
-                System.out.println("");
-            }
-            return false;
-        };
-        List<FoodEntity> filteredFoods = allFoods.stream()
-                .filter(filterPredicate)
-                .collect(Collectors.toList());
-        System.out.println(allFoods);
-        System.out.println(filteredFoods);
-        return filteredFoods;*/
+        } catch (Exception e) {
+            LOGGER.error("Error occurred during product filtration", e);
+            throw new RuntimeException("Error occurred during product filtration", e);
+        }
     }
 
     public double calculateFoodGrams(double dailyCalories, double foodCalorieContent) {
