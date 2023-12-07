@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class DryFoodController {
 
@@ -42,8 +44,8 @@ public class DryFoodController {
     @PostMapping("/processForm")
     public ModelAndView form(@RequestParam String activity,
                              @RequestParam double weight,
-                             @RequestParam int age,
-                             @RequestParam String allergies,
+                             @RequestParam String age,
+                             @RequestParam List<String> allergies,
                              @RequestParam double price,
                              HttpSession session) {
         try {
@@ -52,7 +54,7 @@ public class DryFoodController {
             session.setAttribute("age", age);
             session.setAttribute("allergies", allergies);
             session.setAttribute("price", price);
-            return new ModelAndView("redirect:/dryfoods");
+            return new ModelAndView("redirect:/calculate");
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred: {}", e.getMessage());
             return new ModelAndView("redirect:/error?message=An unexpected error occurred.");

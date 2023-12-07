@@ -40,7 +40,7 @@ public class FoodController {
         return new ModelAndView("redirect:/foodCalc");
     }*/
 
-    @GetMapping("/foodCalc")
+    /*@GetMapping("/foodCalc")
     public ModelAndView showFoods(HttpSession session, Model model) {
         Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
         model.addAttribute("options", options);
@@ -71,5 +71,5 @@ public class FoodController {
         model.addAttribute("foods", foods);
 
         return new ModelAndView("index");
-    }
+    }*/
 }

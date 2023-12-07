@@ -18,7 +18,6 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
-    @Lazy
     @Autowired
     PasswordEncoder passwordEncoder;
 
