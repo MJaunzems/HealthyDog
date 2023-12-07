@@ -29,15 +29,4 @@ public class LoginController {
         return "hello";
     }
 
-    /*@GetMapping("/admin")
-    public String admin(){
-        List<UserEntity> users = userRepository.findAll();
-        for(UserEntity user: users){
-            String hashedPassword = passwordEncoder.encode(user.getUserPassword());
-            user.setUserPassword(hashedPassword);
-        }
-        userRepository.saveAll(users);
-        return "photoTest";
-    }*/
-
 }

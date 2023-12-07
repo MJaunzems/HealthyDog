@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout">
+</form>
+<h1>Add food</h1>
+<form th:action="@{/admin/add-food}" th:object="${foodEntity}" method="post">
+    <label for="company">Company:</label><br>
+    <input type="text" id="company" th:field="*{company}"><br>
+
+    <label for="ageType">Age Type:</label><br>
+    <select id="ageType" th:field="*{ageType}">
+        <option value="Baby">Baby</option>
+        <option value="Junior">Junior</option>
+        <option value="Adult">Adult</option>
+        <option value="Senior">Senior</option>
+    </select><br>
+
+    <label for="price">Price:</label><br>
+    <input type="number" id="price" th:field="*{price}" step="0.01"> €<br>
+
+    <label for="weight">Weight:</label><br>
+    <input type="number" id="weight" th:field="*{weight}" step="0.01"> Kg<br>
+
+    <label for="calorie">Calorie:</label><br>
+    <input type="number" id="calorie" th:field="*{calorie}" step="1"><br>
+
+    <label for="imageName">Image path:</label><br>
+    <input type="text" id="imageName" th:field="*{imageName}" placeholder="/images/..."><br>
+
+    <label for="petType">Pet Type:</label><br>
+    <select id="petType" th:field="*{petType}">
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+    </select><br><br>
+
+    <input type="submit" value="Add Food"><br>
+</form>
+<h1>Delete food</h1>
+<form th:action="@{/admin/delete-food}" method="post">
+    <label for="id">Id:</label><br>
+    <input type="number" name="id" id="id"><br><br>
+
+    <input type="submit" value="Delete food">
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Company</th>
+        <th>Age Type</th>
+        <th>Price</th>
+        <th>Weight</th>
+        <th>Calories</th>
+        <th>Image Path</th>
+        <th>Pet Type</th>
+        <!-- Add more columns as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="food : ${foods}">
+        <td th:text="${food.id}"></td>
+        <td th:text="${food.company}"></td>
+        <td th:text="${food.ageType}"></td>
+        <td th:text="${food.price}"></td>
+        <td th:text="${food.weight}"></td>
+        <td th:text="${food.calorie}"></td>
+        <td th:text="${food.imageName}"></td>
+        <td th:text="${food.petType}"></td>
+        <!-- Add more data cells as needed -->
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
