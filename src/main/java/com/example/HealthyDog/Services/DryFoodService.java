@@ -1,8 +1,9 @@
 package com.example.HealthyDog.Services;
 
-import com.example.HealthyDog.Entities.CannedFoodEntity;
-import com.example.HealthyDog.Entities.DryFoodEntity;
+import com.example.HealthyDog.Entities.*;
 import com.example.HealthyDog.Repositories.DryFoodRepository;
+import com.example.HealthyDog.Repositories.FoodIngredientsEntityRepository;
+import com.example.HealthyDog.Repositories.FoodRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,16 @@ import java.util.List;
 public class DryFoodService {
 
     private final DryFoodRepository dryFoodRepository;
+    private final FoodRepository foodRepository;
     private static final Logger logger = LoggerFactory.getLogger(CannedFoodService.class);
+    private final FoodIngredientsEntityRepository foodIngredientsEntityRepository;
 
     @Autowired
-    public DryFoodService(DryFoodRepository dryFoodRepository) {
+    public DryFoodService(DryFoodRepository dryFoodRepository, FoodRepository foodRepository,
+                          FoodIngredientsEntityRepository foodIngredientsEntityRepository) {
         this.dryFoodRepository = dryFoodRepository;
+        this.foodRepository = foodRepository;
+        this.foodIngredientsEntityRepository = foodIngredientsEntityRepository;
     }
 
     public Page<DryFoodEntity> getTopDryFoods(int page, int size) {
@@ -37,4 +43,15 @@ public class DryFoodService {
         }
     }
 
+    public List<FoodEntity> getById(long id){
+        return foodRepository.findById(id);
+    }
+
+    public List<FoodEntity> getAllFoods(){
+        return foodRepository.findAll();
+    }
+
+    public List<FoodIngredientsEntity> getAllIngredientsById(Long id) {
+        return foodIngredientsEntityRepository.findAllById(id);
+    }
 }
