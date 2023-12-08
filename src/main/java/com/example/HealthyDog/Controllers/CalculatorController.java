@@ -9,18 +9,15 @@ import com.example.HealthyDog.Services.CannedFoodService;
 import com.example.HealthyDog.Services.DryFoodService;
 import com.example.HealthyDog.Services.PdfService;
 import jakarta.servlet.http.HttpSession;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
