@@ -15,8 +15,15 @@
             padding: 0;
             font-family: 'Young Serif', serif;
         }
+        .error{
+                    color:red;
+                }
 
-        main {
+        .message{
+            color:green;
+        }
+         main {
+
             min-height: 100vh;
             padding-top: 5%;
             padding-bottom: 20px;
@@ -94,7 +101,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav center">
             <li class="nav-item">
-                <a class="nav-link" href="#" style="margin: auto;">Print</a>
+                <a class="nav-link" href="/generate-pdf" style="margin: auto;">Print</a>
+
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" style="margin: auto;">Save</a>
@@ -107,10 +115,11 @@
         </ul>
     </div>
 </nav>
-
 <main class="container mt-4">
     <div class="row">
         <div class="col-md-8">
+                          <div th:if="${message}" class="message" th:text="${message}"></div>
+                <div th:if="${errorPrint}" class="error" th:text="${errorPrint}"></div>
             <h1 th:text="'Calculated food for your ' + ${selectedAnimal}" class="mt-4"></h1>
             <table class="table table-striped table-background">
                 <tr>
@@ -121,19 +130,27 @@
                     <th>Grams</th>
                 </tr>
                 <div th:each="result : ${foodResults}">
-                    <tr>
-                        <td>
-                            <img th:src="${result.photo}" alt="Food Image" style="width: 200px; height: auto;"/>
-                        </td>
-                        <td th:text ="${result.companyName}"></td>
-                        <td th:text ="${result.weight} + 'kg'"></td>
-                        <td th:text ="${result.price} + '€'"></td>
-                        <td th:text ="${result.grams} + 'g'"></td>
-                    </tr>
-                </div>
-            </table>
-        </div>
 
+                    <tr>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Weight</th>
+                        <th>Price</th>
+                        <th>Grams</th>
+                    </tr>
+                                      <div th:each="result : ${foodResults}">
+                        <tr>
+                            <td>
+                                <img th:src="${result.photo}" alt="Food Image" style="width: 200px; height: auto;"/>
+                            </td>
+                            <td th:text="${result.companyName}"></td>
+                            <td th:text="${result.weight} + 'kg'"></td>
+                            <td th:text="${result.price} + '€'"></td>
+                            <td th:text="${result.grams} + 'g'"></td>
+                        </tr>
+                    </div>
+                </table>
+            </div>
         <div class="col-md-4">
             <form th:action="@{/processForm}" method="post">
                 <h1 class="mt-4">Form</h1>
@@ -164,6 +181,7 @@
                 </div>
                 <input type="submit" value="Submit" class="btn btn-primary mt-3">
             </form>
+        </div>
         </div>
     </div>
 </main>

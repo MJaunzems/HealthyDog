@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS pet_entity;
 
 CREATE TABLE pet_entity (
-   pet_id BIGINT NOT NULL,
+   pet_id BIGINT AUTO_INCREMENT NOT NULL,
    user_id BIGINT NOT NULL,
    pet_type ENUM ('Dog', 'Cat'),
    pet_name VARCHAR(255) NULL,
@@ -16,7 +16,7 @@ CREATE TABLE pet_entity (
 DROP TABLE IF EXISTS user_entity;
 
 CREATE TABLE user_entity (
-   user_id BIGINT NOT NULL,
+   user_id BIGINT AUTO_INCREMENT NOT NULL,
    user_role VARCHAR(255) NOT NULL,
    user_nickname VARCHAR(255) NULL,
    user_email VARCHAR(255) NULL,
@@ -42,7 +42,7 @@ CREATE TABLE dry_food_entity (
 DROP TABLE IF EXISTS food_entity;
 
 CREATE TABLE food_entity(
-    id BIGINT NOT NULL,
+    id BIGINT AUTO_INCREMENT NOT NULL,
     company VARCHAR(255) NULL,
     age_type ENUM ('Baby', 'Junior', 'Adult', 'Senior'),
     price DOUBLE NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE food_ingredients_entity(
 DROP TABLE IF EXISTS allergic_foods_entity;
 
 CREATE TABLE allergic_foods_entity (
-   allergic_id BIGINT NOT NULL,
+   allergic_id BIGINT AUTO_INCREMENT NOT NULL,
 --pet_id BIGINT NOT NULL,
    ingredient_id BIGINT NOT NULL,
    allergic_name VARCHAR(255) NULL,
