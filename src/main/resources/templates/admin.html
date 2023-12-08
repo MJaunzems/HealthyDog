@@ -61,6 +61,10 @@
         .navbar-nav ml-auto {
             list-style: none;
         }
+        .error{
+            color:red;
+        }
+
     </style>
 </head>
 <body>
@@ -110,7 +114,7 @@
             <h1>Add food</h1>
             <form th:action="@{/admin/add-food}" th:object="${foodEntity}" method="post">
                 <label for="company">Company:</label><br>
-                <input type="text" id="company" th:field="*{company}"><br>
+                <input type="text" id="company" th:field="*{company}" required><br>
 
                 <label for="ageType">Age Type:</label><br>
                 <select id="ageType" th:field="*{ageType}">
@@ -121,16 +125,19 @@
                 </select><br>
 
                 <label for="price">Price:</label><br>
-                <input type="number" id="price" th:field="*{price}" step="0.01"> €<br>
+                <div th:if="${errorPrice}" class="error" th:text="${errorPrice}"></div>
+                <input type="number" id="price" th:field="*{price}" step="0.01" required> €<br>
 
                 <label for="weight">Weight:</label><br>
-                <input type="number" id="weight" th:field="*{weight}" step="0.01"> Kg<br>
+                <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
+                <input type="number" id="weight" th:field="*{weight}" step="0.01" required> Kg<br>
 
                 <label for="calorie">Calorie:</label><br>
-                <input type="number" id="calorie" th:field="*{calorie}" step="1"><br>
+                <div th:if="${errorCalorie}" class="error" th:text="${errorCalorie}"></div>
+                <input type="number" id="calorie" th:field="*{calorie}" step="1" required><br>
 
                 <label for="imageName">Image path:</label><br>
-                <input type="text" id="imageName" th:field="*{imageName}" placeholder="/images/..."><br>
+                <input type="text" id="imageName" th:field="*{imageName}" placeholder="/images/..." required><br>
 
                 <label for="petType">Pet Type:</label><br>
                 <select id="petType" th:field="*{petType}">
@@ -144,7 +151,8 @@
             <h1>Delete food</h1>
             <form th:action="@{/admin/delete-food}" method="post">
                 <label for="id">Id:</label><br>
-                <input type="number" name="id" id="id"><br><br>
+                <div th:if="${error}" class="error" th:text="${error}"></div>
+                <input type="number" name="id" id="id" required><br><br>
                 <input type="submit" value="Delete food" class="btn btn-danger"><br>
             </form>
         </div>
