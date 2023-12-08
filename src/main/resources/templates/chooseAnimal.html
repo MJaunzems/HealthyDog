@@ -17,6 +17,10 @@
             font-family: 'Young Serif', serif;
         }
 
+        .error{
+            color:red;
+        }
+
         .text-center {
             text-align: center;
         }
@@ -109,6 +113,7 @@
     <div class="card text-center">
         <div class="card-body">
             <h2 class="card-title">Choose type of pet:</h2>
+            <div th:if="${error}" class="error" th:text="${error}"></div>
             <form action="/processType" onsubmit="return navigateToPage2()" method="post" class="text-center">
                 <div class="checkbox-group">
                     <div class="form-check d-flex">
@@ -129,7 +134,7 @@
 </div>
 
 <div class="footer">
-    <p>Developed by Jana Shvets, Martinsh Jaunzems and Tatjana Vlasova | Technologies: HTML, CSS, Bootstrap, Thymeleaf, SpringBoot, Java etc.</p>
+    <p>Developed by Jana Shvets, Martins Jaunzems and Tatjana Vlasova | Technologies: HTML, CSS, Bootstrap, Thymeleaf, SpringBoot, Java etc.</p>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

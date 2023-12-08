@@ -39,7 +39,6 @@ public class SecurityConfig {
                         .successHandler(myAuthenticationSuccessHandler())
                 )
                 .logout((logout) -> logout
-                        .logoutSuccessUrl("/")
                         .invalidateHttpSession(true)
                         .clearAuthentication(true))
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));

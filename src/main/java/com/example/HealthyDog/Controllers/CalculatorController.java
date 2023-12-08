@@ -65,7 +65,7 @@ public class CalculatorController {
 
         model.addAttribute("options", options);
         model.addAttribute("foodResults", foodResults);
-
+        model.addAttribute("selectedAnimal", session.getAttribute("type"));
         return "dryfoods";
     }
 
