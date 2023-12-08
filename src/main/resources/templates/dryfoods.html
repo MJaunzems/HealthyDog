@@ -17,6 +17,9 @@
                     color:red;
                 }
 
+        .message{
+            color:green;
+        }
          main {
             min-height: 100vh;
             padding-top: 5%;
@@ -105,65 +108,67 @@
 
 <main>
     <div class="container vh-100 mt-4">
-    <div class="row">
-        <div class="col-md-8">
-            <h1 th:text="'Calculated food for your ' + ${selectedAnimal}"></h1>
-            <table border="1" class="table table-striped">
-                <tr>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Weight</th>
-                    <th>Price</th>
-                    <th>Grams</th>
-                </tr>
-                <div th:each="result : ${foodResults}">
+        <div class="row">
+            <div class="col-md-8">
+                <div th:if="${message}" class="message" th:text="${message}"></div>
+                <div th:if="${errorPrint}" class="error" th:text="${errorPrint}"></div>
+                <h1 th:text="'Calculated food for your ' + ${selectedAnimal}"></h1>
+                <table border="1" class="table table-striped">
                     <tr>
-                        <td>
-                            <img th:src="${result.photo}" alt="Food Image" style="width: 200px; height: auto;"/>
-                        </td>
-                        <td th:text ="${result.companyName}"></td>
-                        <td th:text ="${result.weight} + 'kg'"></td>
-                        <td th:text ="${result.price} + '€'"></td>
-                        <td th:text ="${result.grams} + 'g'"></td>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Weight</th>
+                        <th>Price</th>
+                        <th>Grams</th>
                     </tr>
-                </div>
+                    <div th:each="result : ${foodResults}">
+                        <tr>
+                            <td>
+                                <img th:src="${result.photo}" alt="Food Image" style="width: 200px; height: auto;"/>
+                            </td>
+                            <td th:text="${result.companyName}"></td>
+                            <td th:text="${result.weight} + 'kg'"></td>
+                            <td th:text="${result.price} + '€'"></td>
+                            <td th:text="${result.grams} + 'g'"></td>
+                        </tr>
+                    </div>
 
-            </table>
-        </div>
+                </table>
+            </div>
 
-        <div class="col-md-4">
-            <form th:action="@{/processForm}" method="post">
-                <h1>Form</h1>
-                <label for="activity">Activity:</label><br>
-                <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
-                <select name="activity" id="activity">
-                    <option value="null">Select option:</option>
-                    <option value="minimal_active">Minimal activity (or old)</option>
-                    <option value="low_active">Low activity</option>
-                    <option value="medium_active">Medium activity</option>
-                    <option value="high_active">High activity</option>
-                    <option value="very_high_active">Very high activity</option>
-                </select><br>
-                <label for="weight">Weight:</label><br>
-                <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
-                <input type="number" id="weight" name="weight" placeholder="0.00"><br>
-                <label for="age">Age:</label><br>
-                <div th:if="${errorAge}" class="error" th:text="${errorAge}"></div>
-                <select name="age" id="age">
-                    <option value="null">Select option:</option>
-                    <option value="Baby">Baby (until 6 months)</option>
-                    <option value="Junior">Junior (from 6m. to 2y.)</option>
-                    <option value="Adult">Adult (from 2y. to 8y.)</option>
-                    <option value="Senior">Senior (from 8y.)</option>
-                </select><br>
-                <p>Allergies:</p>
-                <div th:each="option : ${options}">
-                    <input type="checkbox" name="allergies" th:value="${option.allergicName}"
-                           th:id="${'allergy-' + option.allergicId}"/>
-                    <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"></label><br>
-                </div>
-                <input type="submit" value="Submit" class="btn btn-success mt-3"><br>
-            </form>
+            <div class="col-md-4">
+                <form th:action="@{/processForm}" method="post">
+                    <h1>Form</h1>
+                    <label for="activity">Activity:</label><br>
+                    <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
+                    <select name="activity" id="activity">
+                        <option value="null">Select option:</option>
+                        <option value="minimal_active">Minimal activity (or old)</option>
+                        <option value="low_active">Low activity</option>
+                        <option value="medium_active">Medium activity</option>
+                        <option value="high_active">High activity</option>
+                        <option value="very_high_active">Very high activity</option>
+                    </select><br>
+                    <label for="weight">Weight:</label><br>
+                    <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
+                    <input type="number" id="weight" name="weight" placeholder="0.00"><br>
+                    <label for="age">Age:</label><br>
+                    <div th:if="${errorAge}" class="error" th:text="${errorAge}"></div>
+                    <select name="age" id="age">
+                        <option value="null">Select option:</option>
+                        <option value="Baby">Baby (until 6 months)</option>
+                        <option value="Junior">Junior (from 6m. to 2y.)</option>
+                        <option value="Adult">Adult (from 2y. to 8y.)</option>
+                        <option value="Senior">Senior (from 8y.)</option>
+                    </select><br>
+                    <p>Allergies:</p>
+                    <div th:each="option : ${options}">
+                        <input type="checkbox" name="allergies" th:value="${option.allergicName}"
+                               th:id="${'allergy-' + option.allergicId}"/>
+                        <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"></label><br>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-success mt-3"><br>
+                </form>
             </div>
         </div>
     </div>
