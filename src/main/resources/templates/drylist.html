@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+
         body {
            background-color: #7aadc4;
            background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
@@ -15,7 +16,7 @@
 
         main {
            min-height: 100vh;
-           padding-top: -5%;
+           padding-top: 5%;
            padding-bottom: 20px;
        }
        .navbar {
@@ -45,18 +46,9 @@
     </style>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="/choose-animal">HealthyDog</a>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Print</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Save</a>
-            </li>
-        </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/choose-animal">Exit</a>
@@ -64,40 +56,35 @@
         </ul>
     </div>
 </nav>
-
-<div class="container vh-100 mt-4">
-    <div class="row">
-        <div class="col-md-8">
-            <h1>Dry food list</h1>
-            <table border="1" class="table table-striped">
-                <tr>
-                    <th>ID</th>
-                    <th>Company</th>
-                    <th>Age Type</th>
-                    <th>Price</th>
-                    <th>Weight</th>
-                    <th>Pet Type</th>
-                    <th>Image</th>
-                </tr>
-                <tr th:each="dryFood : ${dryFoods}">
-                    <td th:text="${dryFood.dryId}"></td>
-                    <td th:text="${dryFood.dryCompany}"></td>
-                    <td th:text="${dryFood.dryFoodAgeType}"></td>
-                    <td th:text="${dryFood.dryPrice}"></td>
-                    <td th:text="${dryFood.dryWeight}"></td>
-                    <td th:text="${dryFood.dryFoodPetType}"></td>
-                    <td>
-                        <img width="200px" height="200x" th:src="${dryFood.imageName}">
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-            <a href="#" class="exit-link">Exit</a>
-
+<main>
+    <div class="container vh-100 mt-4">
+        <h1>Dry food list</h1>
+        <div class="row">
+            <div class="col-md-8">
+                <table border="1" class="table table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>Company</th>
+                        <th>Age Type</th>
+                        <th>Price</th>
+                        <th>Weight</th>
+                        <th>Pet Type</th>
+                        <th>Image</th>
+                    </tr>
+                    <tr th:each="dryFood : ${dryFoods}">
+                        <td th:text="${dryFood.dryId}"></td>
+                        <td th:text="${dryFood.dryCompany}"></td>
+                        <td th:text="${dryFood.dryFoodAgeType}"></td>
+                        <td th:text="${dryFood.dryPrice}"></td>
+                        <td th:text="${dryFood.dryWeight}"></td>
+                        <td th:text="${dryFood.dryFoodPetType}"></td>
+                        <td><img width="200px" height="200x" th:src="${dryFood.imageName}" alt="Image"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+</main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
