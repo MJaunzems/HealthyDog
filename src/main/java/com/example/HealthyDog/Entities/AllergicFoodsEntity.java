@@ -15,16 +15,13 @@ public class AllergicFoodsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="allergic_id")
     private long allergicId;
-    //@Column(name="pet_id")
-    //private long petId;
     @Column(name="ingredient_id")
     private long ingredientId;
     @Column(name="allergic_name")
     private String allergicName;
 
-    public AllergicFoodsEntity(long allergicId, long petId, long ingredientId, String allergicName) {
+    public AllergicFoodsEntity(long allergicId, long ingredientId, String allergicName) {
         this.allergicId = allergicId;
-        //this.petId = petId;
         this.ingredientId = ingredientId;
         this.allergicName = allergicName;
     }
