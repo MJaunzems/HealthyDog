@@ -40,15 +40,8 @@ public class CalculatorController {
     @Autowired
     private PdfService pdfService;
 
-    private final List<FoodDTO> MENU = new ArrayList<>();
-
     @GetMapping("/calculate")
     public String calculate(Model model, HttpSession session) {
-        if (session.getAttribute("weight") == null || session.getAttribute("activity") == null) {
-            session.setAttribute("weight", 10.0);
-            session.setAttribute("activity", "medium_active");
-            session.setAttribute("age", "Adult");
-        }
         double rer = calculatorService.calculateRER((Double) session.getAttribute("weight"));
         double k = calculatorService.validateAndSetK((String) session.getAttribute("activity"));
         double dailyCalories = calculatorService.calculateDailyCalories(rer, k);
@@ -60,8 +53,7 @@ public class CalculatorController {
             double foodGrams = calculatorService.calculateFoodGrams(dailyCalories, foodCalorieContent);
             foodResults.add(new FoodDTO(food.getCompany(), Math.round(foodGrams), food.getWeight(), food.getImageName(), food.getPrice()));
         }
-
-        MENU.addAll(foodResults);
+        session.setAttribute("MENU", foodResults);
 
         Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
 
@@ -72,20 +64,20 @@ public class CalculatorController {
     }
 
     @GetMapping("/generate-pdf")
-    public ModelAndView generatePdfReport(Model model, RedirectAttributes redirectAttributes) {
-
-        if (!MENU.isEmpty()) {
+    public ModelAndView generatePdfReport(HttpSession session, RedirectAttributes redirectAttributes) {
+        List<FoodDTO> MENU = (List<FoodDTO>) session.getAttribute("MENU");
+        if (MENU != null && !MENU.isEmpty()) {
             try {
                 pdfService.generatePdf(MENU);
                 redirectAttributes.addFlashAttribute("message", "PDF report generated successfully!");
             } catch (Exception e) {
+                LOGGER.error("Error generating PDF report: {}", e.getMessage());
                 redirectAttributes.addFlashAttribute("errorPrint", "Error generating PDF report: " + e.getMessage());
             }
-            return new ModelAndView("redirect:/dryfoods");
         } else {
             redirectAttributes.addFlashAttribute("errorPrint", "You must complete the form.");
-            return new ModelAndView("redirect:/dryfoods");
         }
+        return new ModelAndView("redirect:/dryfoods");
     }
 
 }
