@@ -37,7 +37,7 @@ public class SecurityConfig {
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")
-                        .successHandler(myAuthenticationSuccessHandler())
+                        .successHandler(myCustomSuccessHandler())
                 )
                 .logout((logout) -> logout
                         .invalidateHttpSession(true)
@@ -47,9 +47,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
-        SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
-        successHandler.setTargetUrlParameter("targetUrl");
-        return successHandler;
+    public AuthenticationSuccessHandler myCustomSuccessHandler() {
+        return new MyCustomSuccessHandler();
     }
 }
