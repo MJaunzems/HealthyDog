@@ -34,6 +34,7 @@ public class MyUserDetails extends UserEntity implements UserDetails {
         return authorities;
     }
 
+    public Long getId() { return userId; }
     @Override
     public String getPassword() {
         return userPassword;

@@ -149,14 +149,14 @@
             <div th:if="${errorPrint}" class="error" th:text="${errorPrint}"></div>
             <h1 th:text="'Calculated food for your ' + ${selectedAnimal}" class="mt-4"></h1>
             <div class="table-responsive">
-            <table class="table table-striped table-background" style="width:100%;">
-                <tr>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Weight</th>
-                    <th>Price</th>
-                    <th>Grams</th>
-                </tr>
+                <table class="table table-striped table-background" style="width:100%;">
+                    <tr>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Weight</th>
+                        <th>Price</th>
+                        <th>Grams</th>
+                    </tr>
                     <div th:each="result : ${foodResults}">
                         <tr>
                             <td>
@@ -168,64 +168,60 @@
                             <td th:text="${result.grams} + 'g'"></td>
                         </tr>
                     </div>
-            </table>
+                </table>
             </div>
         </div>
-        </div>
-        <div class="col-md-4">
-            <form th:action="@{/processForm}" method="post">
-                <h1 class="mt-4">Form</h1>
-                <label for="activity">Activity:</label><br>
-                <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
-                <select name="activity" id="activity" class="form-control">
-                    <option value="null">Select option:</option>
-                    <option value="minimal_active">Minimal activity (or old)</option>
-                    <option value="low_active">Low activity</option>
-                    <option value="medium_active">Medium activity</option>
-                    <option value="high_active">High activity</option>
-                    <option value="very_high_active">Very high activity</option>
-                </select><br>
-                <label for="weight">Weight:</label><br>
-                <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
-                <input type="number" id="weight" name="weight" placeholder="0.00" class="form-control"><br>
-                <label for="age">Age:</label><br>
-                <div th:if="${errorAge}" class="error" th:text="${errorAge}"></div>
-                <select name="age" id="age" class="form-control">
-                    <option value="null">Select option:</option>
-                    <option value="Baby">Baby (until 6 months)</option>
-                    <option value="Junior">Junior (from 6m. to 2y.)</option>
-                    <option value="Adult">Adult (from 2y. to 8y.)</option>
-                    <option value="Senior">Senior (from 8y.)</option>
-                </select><br>
-                <p>Allergies:</p>
-                <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            <div th:each="option, iterStat : ${options}" th:if="${iterStat.index % 2 == 0}" class="col-md-10 col-sm-6">
-                                <div class="form-check">
-                                    <input type="checkbox" name="allergies" th:value="${option.allergicName}" th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
-                                    <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}" class="form-check-label"></label><br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div th:each="option, iterStat : ${options}" th:if="${iterStat.index % 2 != 0}" class="col-md-10 col-sm-6">
-                                <div class="form-check">
-                                    <input type="checkbox" name="allergies" th:value="${option.allergicName}" th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
-                                    <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}" class="form-check-label"></label><br>
-                                </div>
-                            </div>
-                        </div>
+    </div>
+    <div class="col-md-4">
+        <form th:action="@{/processForm}" method="post">
+            <h1 class="mt-4">Form</h1>
+            <label for="activity">Activity:</label><br>
+            <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
+            <select name="activity" id="activity" class="form-control">
+                <option value="null">Select option:</option>
+                <option value="Minimal activity">Minimal activity (or old)</option>
+                <option value="Low activity">Low activity</option>
+                <option value="Medium activity">Medium activity</option>
+                <option value="High activity">High activity</option>
+                <option value="Very high activity">Very high activity</option>
+            </select><br>
+            <label for="weight">Weight:</label><br>
+            <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
+            <input type="number" id="weight" name="weight" placeholder="0.00" class="form-control"><br>
+            <label for="age">Age:</label><br>
+            <div th:if="${errorAge}" class="error" th:text="${errorAge}"></div>
+            <select name="age" id="age" class="form-control">
+                <option value="null">Select option:</option>
+                <option value="Baby">Baby (until 6 months)</option>
+                <option value="Junior">Junior (from 6m. to 2y.)</option>
+                <option value="Adult">Adult (from 2y. to 8y.)</option>
+                <option value="Senior">Senior (from 8y.)</option>
+            </select><br>
+            <p>Allergies:</p>
+            <div class="allergies-container">
+                <div class="column">
+                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 == 0}" class="col-md-10 col-sm-6">
+                        <input type="checkbox" name="allergies" th:value="${option.allergicName}"
+                               th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
+                        <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
+                               class="form-check-label"></label><br>
                     </div>
                 </div>
-                <div class="text-center">
-                <input type="submit" value="Submit" class="btn btn-primary mt-3">
+                <div class="column">
+                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 != 0}" class="col-md-10 col-sm-6">
+                        <input type="checkbox" name="allergies" th:value="${option.allergicName}"
+                               th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
+                        <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
+                               class="form-check-label"></label><br>
+                    </div>
                 </div>
-            </form>
+            </div>
+
+    <div class="text-center">
+        <input type="submit" value="Submit" class="btn btn-primary mt-3">
     </div>
-    </div>
+    </form>
+
     </div>
 </main>
 

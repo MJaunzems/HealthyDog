@@ -5,11 +5,10 @@ CREATE TABLE pet_entity (
    user_id BIGINT NOT NULL,
    pet_type ENUM ('Dog', 'Cat'),
    pet_name VARCHAR(255) NULL,
-   pet_activity ENUM ('Active', 'Inactive'),
+   pet_activity VARCHAR(255) NULL,
    pet_weight DOUBLE NOT NULL,
-   pet_age INT NOT NULL,
+   pet_age VARCHAR(255) NOT NULL,
    pet_illness VARCHAR(255) NULL,
-   pet_price_range INT NOT NULL,
    CONSTRAINT pk_petentity PRIMARY KEY (pet_id, user_id)
 );
 
