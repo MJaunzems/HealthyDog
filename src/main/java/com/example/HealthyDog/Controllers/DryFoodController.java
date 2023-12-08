@@ -96,6 +96,7 @@ public class DryFoodController {
             Page<DryFoodEntity> dryFoods = dryFoodService.getTopDryFoods(page, size);
             model.addAttribute("dryFoods", dryFoods.getContent());
             model.addAttribute("selectedAnimal",session.getAttribute("type"));
+            session.removeAttribute("MENU");
             return "dryfoods";
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred: {}", e.getMessage());
