@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -31,7 +32,13 @@ public class DryFoodController {
     }
 
     @PostMapping("/processType")
-    public ModelAndView form(@RequestParam String type, HttpSession session) {
+    public ModelAndView form(@RequestParam(required = false) String type,
+                             HttpSession session,
+                             RedirectAttributes redirectAttributes) {
+        if(type == null || type.isEmpty()){
+            redirectAttributes.addFlashAttribute("error", "Please select a type.");
+            return new ModelAndView("redirect:/choose-animal");
+        }
         try {
             session.setAttribute("type", type);
             return new ModelAndView("redirect:/dryfoods");
@@ -42,11 +49,30 @@ public class DryFoodController {
     }
 
     @PostMapping("/processForm")
-    public ModelAndView form(@RequestParam String activity,
-                             @RequestParam double weight,
-                             @RequestParam String age,
+    public ModelAndView form(@RequestParam(required = false) String activity,
+                             @RequestParam(required = false) Double weight,
+                             @RequestParam(required = false) String age,
                              @RequestParam (value = "allergies", required = false) List<String> allergies,
-                             HttpSession session) {
+                             HttpSession session,
+                             RedirectAttributes redirectAttributes) {
+        boolean noActivityInput = false;
+        if (activity == null || activity.equals("null") || activity.isEmpty()) {
+            noActivityInput = true;
+            redirectAttributes.addFlashAttribute("errorActivity", "Please select an activity.");
+        }
+        boolean noWeightInput = false;
+        if (weight == null || weight <= 0.00) {
+            noWeightInput = true;
+            redirectAttributes.addFlashAttribute("errorWeight", "Please enter a valid weight.");
+        }
+        boolean noAgeInput = false;
+        if (age == null || age.equals("null") || age.isEmpty()) {
+            noAgeInput = true;
+            redirectAttributes.addFlashAttribute("errorAge", "Please select an age.");
+        }
+        if (noActivityInput || noWeightInput || noAgeInput) {
+            return new ModelAndView("redirect:/dryfoods");
+        }
         try {
             session.setAttribute("activity", activity);
             session.setAttribute("weight", weight);
@@ -62,12 +88,14 @@ public class DryFoodController {
     @GetMapping("/dryfoods")
     public String showDryFoods(Model model,
                                @RequestParam(defaultValue = "0") int page,
-                               @RequestParam(defaultValue = "51") int size) {
+                               @RequestParam(defaultValue = "51") int size,
+                               HttpSession session) {
         try {
             Iterable<AllergicFoodsEntity> options = allergicFoodsRepository.findAll();
             model.addAttribute("options", options);
             Page<DryFoodEntity> dryFoods = dryFoodService.getTopDryFoods(page, size);
             model.addAttribute("dryFoods", dryFoods.getContent());
+            model.addAttribute("selectedAnimal",session.getAttribute("type"));
             return "dryfoods";
         } catch (Exception e) {
             LOGGER.error("An unexpected error occurred: {}", e.getMessage());
