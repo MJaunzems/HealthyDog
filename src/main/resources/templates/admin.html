@@ -2,82 +2,164 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Food List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #7aadc4;
+            background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
+            margin: 0;
+            padding: 0;
+            font-family: 'Young Serif', serif;
+        }
+
+        main {
+            min-height: 100vh;
+            padding-top: 5%;
+            padding-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        table {
+            margin-top: 20px;
+            background-color: #ffffff;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #3498db;
+            color: #fff;
+            font-family: 'Young Serif', serif;
+            font-size: 140%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 10px;
+            outline: none !important;
+            border: none !important;
+        }
+
+        .navbar-nav ml-auto {
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Logout">
-</form>
-<h1>Add food</h1>
-<form th:action="@{/admin/add-food}" th:object="${foodEntity}" method="post">
-    <label for="company">Company:</label><br>
-    <input type="text" id="company" th:field="*{company}"><br>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/choose-animal">HealthyDog</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/choose-animal">Exit</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <label for="ageType">Age Type:</label><br>
-    <select id="ageType" th:field="*{ageType}">
-        <option value="Baby">Baby</option>
-        <option value="Junior">Junior</option>
-        <option value="Adult">Adult</option>
-        <option value="Senior">Senior</option>
-    </select><br>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Age Type</th>
+                    <th>Price</th>
+                    <th>Weight</th>
+                    <th>Calories</th>
+                    <th>Image Path</th>
+                    <th>Pet Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="food : ${foods}">
+                    <td th:text="${food.id}"></td>
+                    <td th:text="${food.company}"></td>
+                    <td th:text="${food.ageType}"></td>
+                    <td th:text="${food.price}"></td>
+                    <td th:text="${food.weight}"></td>
+                    <td th:text="${food.calorie}"></td>
+                    <td th:text="${food.imageName}"></td>
+                    <td th:text="${food.petType}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <br>
+            <h1>Add food</h1>
+            <form th:action="@{/admin/add-food}" th:object="${foodEntity}" method="post">
+                <label for="company">Company:</label><br>
+                <input type="text" id="company" th:field="*{company}"><br>
 
-    <label for="price">Price:</label><br>
-    <input type="number" id="price" th:field="*{price}" step="0.01"> €<br>
+                <label for="ageType">Age Type:</label><br>
+                <select id="ageType" th:field="*{ageType}">
+                    <option value="Baby">Baby</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Adult">Adult</option>
+                    <option value="Senior">Senior</option>
+                </select><br>
 
-    <label for="weight">Weight:</label><br>
-    <input type="number" id="weight" th:field="*{weight}" step="0.01"> Kg<br>
+                <label for="price">Price:</label><br>
+                <input type="number" id="price" th:field="*{price}" step="0.01"> €<br>
 
-    <label for="calorie">Calorie:</label><br>
-    <input type="number" id="calorie" th:field="*{calorie}" step="1"><br>
+                <label for="weight">Weight:</label><br>
+                <input type="number" id="weight" th:field="*{weight}" step="0.01"> Kg<br>
 
-    <label for="imageName">Image path:</label><br>
-    <input type="text" id="imageName" th:field="*{imageName}" placeholder="/images/..."><br>
+                <label for="calorie">Calorie:</label><br>
+                <input type="number" id="calorie" th:field="*{calorie}" step="1"><br>
 
-    <label for="petType">Pet Type:</label><br>
-    <select id="petType" th:field="*{petType}">
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-    </select><br><br>
+                <label for="imageName">Image path:</label><br>
+                <input type="text" id="imageName" th:field="*{imageName}" placeholder="/images/..."><br>
 
-    <input type="submit" value="Add Food"><br>
-</form>
-<h1>Delete food</h1>
-<form th:action="@{/admin/delete-food}" method="post">
-    <label for="id">Id:</label><br>
-    <input type="number" name="id" id="id"><br><br>
+                <label for="petType">Pet Type:</label><br>
+                <select id="petType" th:field="*{petType}">
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                </select><br><br>
 
-    <input type="submit" value="Delete food">
-</form>
+                <input type="submit" value="Add Food" class="btn btn-success mt-3"><br>
+            </form>
+            <br>
+            <h1>Delete food</h1>
+            <form th:action="@{/admin/delete-food}" method="post">
+                <label for="id">Id:</label><br>
+                <input type="number" name="id" id="id"><br><br>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Company</th>
-        <th>Age Type</th>
-        <th>Price</th>
-        <th>Weight</th>
-        <th>Calories</th>
-        <th>Image Path</th>
-        <th>Pet Type</th>
-        <!-- Add more columns as needed -->
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="food : ${foods}">
-        <td th:text="${food.id}"></td>
-        <td th:text="${food.company}"></td>
-        <td th:text="${food.ageType}"></td>
-        <td th:text="${food.price}"></td>
-        <td th:text="${food.weight}"></td>
-        <td th:text="${food.calorie}"></td>
-        <td th:text="${food.imageName}"></td>
-        <td th:text="${food.petType}"></td>
-        <!-- Add more data cells as needed -->
-    </tr>
-    </tbody>
-</table>
+                <input type="submit" value="Delete food" class="btn btn-danger"><br>
+            </form>
+        </div>
+    </div>
+</main>
 
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
