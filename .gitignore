@@ -3,9 +3,9 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-**/my-application.log
+**/my-application.log**
 **/*.log
-
+**/*.pdf
 ### STS ###
 .apt_generated
 .classpath

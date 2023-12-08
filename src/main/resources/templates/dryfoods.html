@@ -13,6 +13,10 @@
             font-family: 'Young Serif', serif;
         }
 
+        .error{
+                    color:red;
+                }
+
          main {
             min-height: 100vh;
             padding-top: 5%;
@@ -131,8 +135,9 @@
             <form th:action="@{/processForm}" method="post">
                 <h1>Form</h1>
                 <label for="activity">Activity:</label><br>
+                <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
                 <select name="activity" id="activity">
-                    <option value="0">Select option:</option>
+                    <option value="null">Select option:</option>
                     <option value="minimal_active">Minimal activity (or old)</option>
                     <option value="low_active">Low activity</option>
                     <option value="medium_active">Medium activity</option>
@@ -140,10 +145,12 @@
                     <option value="very_high_active">Very high activity</option>
                 </select><br>
                 <label for="weight">Weight:</label><br>
+                <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
                 <input type="number" id="weight" name="weight" placeholder="0.00"><br>
                 <label for="age">Age:</label><br>
+                <div th:if="${errorAge}" class="error" th:text="${errorAge}"></div>
                 <select name="age" id="age">
-                    <option value="0">Select option:</option>
+                    <option value="null">Select option:</option>
                     <option value="Baby">Baby (until 6 months)</option>
                     <option value="Junior">Junior (from 6m. to 2y.)</option>
                     <option value="Adult">Adult (from 2y. to 8y.)</option>
