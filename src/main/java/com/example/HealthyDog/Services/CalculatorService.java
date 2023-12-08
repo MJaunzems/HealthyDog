@@ -37,15 +37,15 @@ public class CalculatorService {
     public double validateAndSetK(String activityLevel) {
         try {
         switch (activityLevel) {
-            case "minimal_active":
+            case "Minimal activity":
                 return K_MINIMAL_ACTIVE;
-            case "low_active":
+            case "Low activity":
                 return K_LOW_ACTIVE;
-            case "medium_active":
+            case "Medium activity":
                 return K_MEDIUM_ACTIVE;
-            case "high_active":
+            case "High activity":
                 return K_HIGH_ACTIVE;
-            case "very_high_active":
+            case "Very high activity":
                 return K_VERY_HIGH_ACTIVE;
             default:
                 throw new IllegalArgumentException("Invalid activity level");

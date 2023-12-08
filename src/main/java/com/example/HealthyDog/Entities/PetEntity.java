@@ -25,13 +25,11 @@ public class PetEntity {
     @Column(name="pet_weight")
     private double petWeight;
     @Column(name="pet_age")
-    private int petAge;
+    private String petAge;
     @Column(name="pet_illness")
     private String petIllness;
-    @Column(name="pet_price_range")
-    private int petPriceRange;
 
-    public PetEntity(long petId, long userId, String petType, String petName, String petActivity, double petWeight, int petAge, String petIllness, int petPriceRange) {
+    public PetEntity(long petId, long userId, String petType, String petName, String petActivity, double petWeight, String petAge, String petIllness) {
         this.petId = petId;
         this.userId = userId;
         this.petType = petType;
@@ -40,7 +38,6 @@ public class PetEntity {
         this.petWeight = petWeight;
         this.petAge = petAge;
         this.petIllness = petIllness;
-        this.petPriceRange = petPriceRange;
     }
 
 }

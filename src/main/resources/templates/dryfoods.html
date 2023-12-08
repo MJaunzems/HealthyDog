@@ -118,27 +118,31 @@
             <div th:if="${message}" class="message" th:text="${message}"></div>
             <div th:if="${errorPrint}" class="error" th:text="${errorPrint}"></div>
             <h1 th:text="'Calculated food for your ' + ${selectedAnimal}" class="mt-4"></h1>
-            <table class="table table-striped table-background">
-                <tr>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Weight</th>
-                    <th>Price</th>
-                    <th>Grams</th>
-                </tr>
-                <div th:each="result : ${foodResults}">
+
+            <div class="table-responsive">
+                <table class="table table-striped table-background" style="width:100%;">
                     <tr>
-                        <td>
-                            <img th:src="${result.photo}" alt="Food Image" style="width: 200px; height: auto;"/>
-                        </td>
-                        <td th:text="${result.companyName}"></td>
-                        <td th:text="${result.weight} + 'kg'"></td>
-                        <td th:text="${result.price} + '€'"></td>
-                        <td th:text="${result.grams} + 'g'"></td>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Weight</th>
+                        <th>Price</th>
+                        <th>Grams</th>
                     </tr>
-                </div>
+                    <div th:each="result : ${foodResults}">
+                        <tr>
+                            <td>
+                                <img th:src="${result.photo}" alt="Food Image"/>
+                            </td>
+                            <td th:text="${result.companyName}"></td>
+                            <td th:text="${result.weight} + 'kg'"></td>
+                            <td th:text="${result.price} + '€'"></td>
+                            <td th:text="${result.grams} + 'g'"></td>
+                        </tr>
+                    </div>
+                </table>
             </div>
-        </table>
+        </div>
+          
     </div>
     <div class="col-md-4">
         <form th:action="@{/processForm}" method="post">
@@ -147,11 +151,13 @@
             <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
             <select name="activity" id="activity" class="form-control">
                 <option value="null">Select option:</option>
-                <option value="minimal_active">Minimal activity (or old)</option>
-                <option value="low_active">Low activity</option>
-                <option value="medium_active">Medium activity</option>
-                <option value="high_active">High activity</option>
-                <option value="very_high_active">Very high activity</option>
+
+                <option value="Minimal activity">Minimal activity (or old)</option>
+                <option value="Low activity">Low activity</option>
+                <option value="Medium activity">Medium activity</option>
+                <option value="High activity">High activity</option>
+                <option value="Very high activity">Very high activity</option>
+
             </select><br>
             <label for="weight">Weight:</label><br>
             <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
@@ -167,19 +173,20 @@
             </select><br>
             <p>Allergies:</p>
             <div class="allergies-container">
-                <!-- Первая колонка чекбоксов -->
+
                 <div class="column">
-                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 == 0}">
+                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 == 0}" class="col-md-10 col-sm-6">
+
                         <input type="checkbox" name="allergies" th:value="${option.allergicName}"
                                th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
                         <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
                                class="form-check-label"></label><br>
                     </div>
                 </div>
-
-                <!-- Вторая колонка чекбоксов -->
+              
                 <div class="column">
-                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 != 0}">
+                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 != 0}" class="col-md-10 col-sm-6">
+
                         <input type="checkbox" name="allergies" th:value="${option.allergicName}"
                                th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
                         <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
@@ -187,10 +194,13 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Submit" class="btn btn-primary mt-3">
-        </form>
+
+    <div class="text-center">
+        <input type="submit" value="Submit" class="btn btn-primary mt-3">
+
     </div>
-    </div>
+    </form>
+
     </div>
 </main>
 

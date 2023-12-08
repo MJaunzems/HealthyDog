@@ -1,7 +1,7 @@
-INSERT INTO pet_entity (user_id, pet_type, pet_name, pet_activity, pet_weight, pet_age, pet_illness, pet_price_range) VALUES
-(1, 'Dog', 'Rex', 'Active', 30.0, 7, NULL, 100),
-(1, 'Cat', 'Whiskers', 'Inactive', 15.0, 3, NULL, 50),
-(2, 'Dog', 'Fido', 'Active', 40.0, 5, 'Arthritis', 150);
+INSERT INTO pet_entity (user_id, pet_type, pet_name, pet_activity, pet_weight, pet_age, pet_illness) VALUES
+(1, 'Dog', 'Rex', 'Active', 30.0, 'Junior', NULL),
+(1, 'Cat', 'Whiskers', 'Inactive', 15.0, 'Adult', NULL),
+(2, 'Dog', 'Fido', 'Active', 40.0, 'Senior', 'Arthritis');
 
 INSERT INTO user_entity (user_role, user_nickname, user_email, user_phone, user_password) VALUES
 ('USER', 'JohnD', 'john.doe@example.com', 1234567890, '$2a$10$t1KJ8MwhI.JbrYbBcaxyGOjl0AkU/Zp.5OT0ftUwDlIbpM7TLU3ku'),
