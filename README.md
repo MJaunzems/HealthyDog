@@ -28,7 +28,8 @@ Extra
 2. support mobile devices
 3. DB is global, in case of local - synch process is established and in use
 4. OWASP top ten vulnerabilities protection
-5. performance tests
+5. basic documentation
+6. performance tests
 
 Optional 
 1. images/files stored in DB
