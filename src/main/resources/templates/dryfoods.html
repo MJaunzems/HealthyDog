@@ -137,7 +137,6 @@
                         <td th:text="${result.grams} + 'g'"></td>
                     </tr>
                 </div>
-        </div>
         </table>
     </div>
     <div class="col-md-4">
@@ -166,11 +165,23 @@
                 <option value="Senior">Senior (from 8y.)</option>
             </select><br>
             <p>Allergies:</p>
-            <div th:each="option : ${options}">
-                <input type="checkbox" name="allergies" th:value="${option.allergicName}"
-                       th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
-                <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
-                       class="form-check-label"></label><br>
+            <div class="allergies-container">
+                <div class="column">
+                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 == 0}">
+                        <input type="checkbox" name="allergies" th:value="${option.allergicName}"
+                               th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
+                        <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
+                               class="form-check-label"></label><br>
+                    </div>
+                </div>
+                <div class="column">
+                    <div th:each="option, stat : ${options}" th:if="${stat.index % 2 != 0}">
+                        <input type="checkbox" name="allergies" th:value="${option.allergicName}"
+                               th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
+                        <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
+                               class="form-check-label"></label><br>
+                    </div>
+                </div>
             </div>
             <input type="submit" value="Submit" class="btn btn-primary mt-3">
         </form>
