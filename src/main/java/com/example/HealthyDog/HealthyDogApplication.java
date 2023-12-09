@@ -1,6 +1,6 @@
 package com.example.HealthyDog;
 
-import com.example.HealthyDog.Repositories.UserRepository;
+import  com.example.HealthyDog.Repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
