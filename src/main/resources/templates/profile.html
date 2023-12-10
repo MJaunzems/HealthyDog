@@ -11,123 +11,74 @@
 
     <style>
         body {
-       background-image: url('https://images.unsplash.com/photo-1620606725370-5f2b025cadc6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-       background-size: cover;
-       margin: 0;
-       font-family: 'Young Serif', serif;
-       color: #fff;
-       display: flex;
-   }
+            background-image: url('https://images.unsplash.com/photo-1620606725370-5f2b025cadc6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            margin: 0;
+            font-family: 'Young Serif', serif;
+            color: #fff;
+            display: flex;
+        }
 
-   h1 {
-       margin-top: 14%;
-       font-family: 'Young Serif', serif;
-       font-weight: bold;
-       text-align: center;
-       width: 70%;
-       margin-right: 80%;
-   }
+        h1 {
+            margin-top: 14%;
+            font-family: 'Young Serif', serif;
+            font-weight: bold;
+            text-align: center;
+            width: 70%;
+            margin-right: 80%;
+        }
+
+        .sidebar {
+            width: 30%;
+            padding: 20px;
+            position: fixed;
+            right: -500px;
+            top: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: right 0.5s ease;
+        }
+
+        .card-container {
+            font-family: 'Young Serif', serif;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+
+        label {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .sidebar:hover {
+            right: 0;
+        }
 
 
-
-   .sidebar {
-       width: 30%;
-       padding: 20px;
-       position: fixed;
-       right: -500px;
-       top: 0;
-       height: 100%;
-       background-color: rgba(255, 255, 255, 0.8);
-       transition: right 0.5s ease;
-   }
-
-   .card-container {
-       font-family: 'Young Serif', serif;
-       border-radius: 10px;
-       padding: 20px;
-       margin-bottom: 20px;
-       max-width: 400px;
-   }
-
-   label {
-       color: #3498db;
-       font-weight: bold;
-   }
-
-   input {
-       width: 100%;
-       padding: 8px;
-       margin-bottom: 15px;
-       border: 1px solid #3498db;
-       border-radius: 4px;
-       box-sizing: border-box;
-   }
-
-   button {
-       background-color: #3498db;
-       color: #fff;
-       padding: 10px 20px;
-       border: none;
-       border-radius: 4px;
-       cursor: pointer;
-   }
-
-   button:hover {
-       background-color: #2980b9;
-   }
-
-
-   .sidebar:hover {
-       right: 0;
-   }
-
-   @media (max-width: 768px) {
-       body {
-           background-size: cover;
-           background-position: center center;
-           height: 100vh;
-       }
-
-       h1 {
-           width: 100%;
-           margin-top: 30%;
-       }
-
-       .sidebar {
-           width: 100%;
-           right: 0;
-       }
-   }
-
-   .navbar {
-       background-color: #3498db;
-       color: #fff;
-       font-family: 'Young Serif', serif;
-       font-size: 140%;
-       width: 100%;
-       position: fixed;
-       top: 0;
-       z-index: 1000;
-       display: flex;
-   }
-
-   .navbar a {
-       color: #fff;
-       margin: 0 10px;
-       outline: none !important;
-       border: none !important;
-   }
-
-   .navbar-nav.ml-auto {
-       list-style: none;
-       display: flex;
-       align-items: center;
-   }
-
-  .right-form{
-      margin-top:-7%;
-      margin-right: 10%;
-  }
 
         .navbar {
             background-color: #3498db;
@@ -158,21 +109,107 @@
             margin: 0 10px;
         }
 
+        table {
+            width: 100%;
+            margin-top: 10%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            color: #3498db;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .right-form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .allergies-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            flex: 0 0 48%;
+        }
+
+        .form-check-label {
+            margin-left: 10px;
+        }
+
+        table {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            color: #3498db;
+        }
+
+        .message{
+            color:green;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+                background-position: center center;
+                height: 100vh;
+            }
+
+            h1 {
+                width: 100%;
+                margin-top: 30%;
+            }
+
+            .sidebar {
+                width: 100%;
+                right: -100%;
+                transition: right 0.5s ease;
+            }
+
+            .sidebar.open {
+                right: 0;
+            }
+
+            .right-form {
+                margin-top: 0;
+                margin-left: 0;
+            }
+
+            .allergies-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .column {
+                margin-bottom: 10px;
+            }
+        }
+
+
+
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="/choose-animal">HealthyDog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav center">
-            <li class="nav-item">
-                <a class="nav-link" href="/generate-pdf" style="margin: auto;">Print</a>
-            </li>
-        </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/choose-animal">Exit</a>
@@ -181,98 +218,101 @@
     </div>
 </nav>
 
-<main class="container mt-6">
+<main class="container mt-5">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6 col-sm-2">
             <h2 style="margin-top:10%">Your Pets</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Pet Name</th>
-            <th>Pet Type</th>
-            <th>Activity</th>
-            <th>Weight</th>
-            <th>Age</th>
-            <th>Allegies</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="pet : ${pets}">
-            <td th:text="${pet.petName}"></td>
-            <td th:text="${pet.petType}"></td>
-            <td th:text="${pet.petActivity}"></td>
-            <td th:text="${pet.petWeight}"></td>
-            <td th:text="${pet.petAge}"></td>
-            <td th:text="${pet.petIllness}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-    </div>
-
-
-<div class="col-md-4 offset-md-8 align-self-start" style="margin-top:-10%; margin-left:40%">
-<form th:action="@{/profile/savePet}" method="post" class="right-form">
-    <label for="petType">Pet Type:</label>
-    <select id="petType" name="petType">
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-    </select>
-
-    <label for="petName">Pet Name:</label>
-    <input type="text" id="petName" name="petName"  required>
-
-    <label for="activity">Activity:</label>
-    <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
-    <select name="activity" id="activity" class="form-control">
-        <option value="null">Select option:</option>
-        <option value="Minimal activity">Minimal activity (or old)</option>
-        <option value="Low activity">Low activity</option>
-        <option value="Medium activity">Medium activity</option>
-        <option value="High activity">High activity</option>
-        <option value="Very high activity">Very high activity</option>
-    </select><br>
-
-    <label for="weight">Weight:</label><br>
-    <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
-    <input type="number" id="weight" name="weight" placeholder="0.00" class="form-control"><br>
-
-    <label for="age">Age:</label><br>
-    <div th:if="${errorAge}" class="error" th:text="${errorAge}"></div>
-    <select name="age" id="age" class="form-control">
-        <option value="null">Select option:</option>
-        <option value="Baby">Baby (until 6 months)</option>
-        <option value="Junior">Junior (from 6m. to 2y.)</option>
-        <option value="Adult">Adult (from 2y. to 8y.)</option>
-        <option value="Senior">Senior (from 8y.)</option>
-    </select><br>
-
-    <div class="allergies-container">
-        <div class="column">
-            <div th:each="option, stat : ${options}" th:if="${stat.index % 2 == 0}" class="col-md-10 col-sm-6">
-                <input type="checkbox" name="allergies" th:value="${option.allergicName}"
-                       th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
-                <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
-                       class="form-check-label"></label><br>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Pet Name</th>
+                        <th>Pet Type</th>
+                        <th>Activity</th>
+                        <th>Weight</th>
+                        <th>Age</th>
+                        <th>Allegies</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="pet : ${pets}">
+                        <td th:text="${pet.petName}"></td>
+                        <td th:text="${pet.petType}"></td>
+                        <td th:text="${pet.petActivity}"></td>
+                        <td th:text="${pet.petWeight}"></td>
+                        <td th:text="${pet.petAge}"></td>
+                        <td th:text="${pet.petIllness}"></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="column">
-            <div th:each="option, stat : ${options}" th:if="${stat.index % 2 != 0}" class="col-md-10 col-sm-6">
-                <input type="checkbox" name="allergies" th:value="${option.allergicName}"
-                       th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
-                <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
-                       class="form-check-label"></label><br>
-            </div>
+        <div class="col-md-4 col-sm-4">
+            <h2 style="margin-top:15%">Add Pet</h2>
+            <form th:action="@{/profile/savePet}" method="post" class="right-form">
+                <div th:if="${message}" class="message" th:text="${message}"></div>
+                <label for="petType">Pet Type:</label>
+                <select id="petType" name="petType" class="form-control" required>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                </select><br>
+
+                <label for="petName">Pet Name:</label>
+                <input type="text" id="petName" name="petName" class="form-control" required>
+
+                <label for="activity">Activity:</label>
+                <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
+                <select name="activity" id="activity" class="form-control" required>
+                    <option value="Minimal activity">Minimal activity (or old)</option>
+                    <option value="Low activity">Low activity</option>
+                    <option value="Medium activity">Medium activity</option>
+                    <option value="High activity">High activity</option>
+                    <option value="Very high activity">Very high activity</option>
+                </select><br>
+
+                <label for="weight">Weight:</label>
+                <div th:if="${errorWeight}" class="error" th:text="${errorWeight}"></div>
+                <input type="number" id="weight" name="weight" placeholder="0.00" class="form-control" required>
+
+                <label for="age">Age:</label><br>
+                <div th:if="${errorAge}" class="error" th:text="${errorAge}"></div>
+                <select name="age" id="age" class="form-control" required>
+                    <option value="Baby">Baby (until 6 months)</option>
+                    <option value="Junior">Junior (from 6m. to 2y.)</option>
+                    <option value="Adult">Adult (from 2y. to 8y.)</option>
+                    <option value="Senior">Senior (from 8y.)</option>
+                </select><br>
+
+                <div class="allergies-container">
+                    <div class="column">
+                        <div th:each="option, stat : ${options}" th:if="${stat.index % 2 == 0}"
+                             class="col-md-2">
+                            <input type="checkbox" name="allergies" th:value="${option.allergicName}"
+                                   th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
+                            <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
+                                   class="form-check-label"></label><br>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div th:each="option, stat : ${options}" th:if="${stat.index % 2 != 0}"
+                             class="col-md-2">
+                            <input type="checkbox" name="allergies" th:value="${option.allergicName}"
+                                   th:id="${'allergy-' + option.allergicId}" class="form-check-input"/>
+                            <label th:for="${'allergy-' + option.allergicId}" th:text="${option.allergicName}"
+                                   class="form-check-label"></label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit">Save Pet</button>
+                </div>
+            </form>
         </div>
     </div>
-    <button type="submit">Save Pet</button>
-</form>
-</div>
-
-
+</main>
 <div class="sidebar">
     <div class="card-container">
-        <h2 style="margin-top:35%">Edit Profile</h2>
+        <h2 style="margin-top:35%; color: #3498db;">Edit Profile</h2>
         <form th:action="@{/profile/update}" th:object="${user}" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" th:field="*{username}" required>
@@ -288,7 +328,7 @@
     </div>
 
     <div class="card-container">
-        <h2>Change Password</h2>
+        <h2 style="color: #3498db;">Change Password</h2>
         <form th:action="@{/profile/change-password}" method="post">
             <label for="currentPassword">Current Password:</label>
             <input type="password" id="currentPassword" name="currentPassword" required>
@@ -300,7 +340,6 @@
         </form>
     </div>
 </div>
-</main>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -312,5 +351,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script>
+
+    $(document).ready(function() {
+        $('.navbar-toggler').click(function() {
+            $('.sidebar').toggleClass('open');
+        });
+    });
+
+</script>
 </body>
 </html>

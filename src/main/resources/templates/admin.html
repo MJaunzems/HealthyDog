@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Food List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -65,11 +65,42 @@
             color:red;
         }
 
+        @media (max-width: 768px) {
+            main {
+                padding-top: 10%;
+            }
+
+            .navbar {
+                font-size: 120%;
+            }
+
+            .navbar a {
+                margin: 0 5px;
+            }
+
+            .navbar-nav.ml-auto .nav-item {
+                margin: 0 5px;
+            }
+
+            .table-background {
+                overflow-x: auto;
+            }
+
+            img{
+            width: 100px;
+            height: auto;
+            }
+        }
+
+
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="/choose-animal">HealthyDog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -82,6 +113,7 @@
 <main class="container">
     <div class="row">
         <div class="col-md-8">
+            <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -108,6 +140,7 @@
                 </tr>
                 </tbody>
             </table>
+            </div>
         </div>
         <div class="col-md-4">
             <br>
