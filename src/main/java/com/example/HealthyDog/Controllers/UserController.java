@@ -64,7 +64,7 @@ public class UserController {
                           @RequestParam String activity,
                           @RequestParam Double weight,
                           @RequestParam String age,
-                          @RequestParam String allergies,
+                          @RequestParam (required = false) String allergies,
                           RedirectAttributes redirectAttributes){
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
