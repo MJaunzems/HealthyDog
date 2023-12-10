@@ -82,6 +82,7 @@
 
         .allergies-container {
             display: flex;
+            margin-left:10px;
         }
 
         .column {
@@ -91,6 +92,10 @@
         img{
         width: 200px;
         height: auto;
+        }
+
+        .my-custom-fixed-position {
+            position: fixed;
         }
 
         @media (max-width: 768px) {
@@ -115,17 +120,17 @@
             }
 
             img{
-            width: 100px;
-            height: auto;
-        }
-        }
+                width: 100px;
+                height: auto;
+            }
 
-       .my-custom-fixed-position {
-            position: fixed;
-            top: 85%;
-            right: 25%;
+           .my-custom-fixed-position {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-top: 5%;
+            }
         }
-
 
     </style>
 </head>
@@ -168,18 +173,17 @@
                             <td>
                                 <img th:src="${result.photo}" alt="Food Image"/>
                             </td>
-                            <td th:text="${result.companyName}"></td>
-                            <td th:text="${result.weight} + 'kg'"></td>
-                            <td th:text="${result.price} + '€'"></td>
-                            <td th:text="${result.grams} + 'g'"></td>
+                            <td style="text-align: center; vertical-align: middle;" th:text="${result.companyName}"></td>
+                            <td style="text-align: center; vertical-align: middle;" th:text="${result.weight} + 'kg'"></td>
+                            <td style="text-align: center; vertical-align: middle;" th:text="${result.price} + '€'"></td>
+                            <td style="text-align: center; vertical-align: middle;" th:text="${result.grams} + 'g'"></td>
                         </tr>
                     </div>
                 </table>
             </div>
         </div>
-    </div>
-    <div class="col-md-4 offset-md-8 align-self-start">
-        <form th:action="@{/processForm}" method="post" class="my-custom-fixed-position" style="margin-top:-35%">
+    <div class="col-md-4">
+        <form th:action="@{/processForm}" method="post" class="my-custom-fixed-position">
             <h1 class="mt-1">Form</h1>
             <label for="activity">Activity:</label><br>
             <div th:if="${errorActivity}" class="error" th:text="${errorActivity}"></div>
@@ -227,7 +231,7 @@
                 <input type="submit" value="Submit" class="btn btn-primary mt-3">
             </div>
         </form>
-
+    </div>
     </div>
 </main>
 
