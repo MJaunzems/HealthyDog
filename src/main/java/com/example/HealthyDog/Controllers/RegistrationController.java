@@ -32,7 +32,7 @@ public class RegistrationController {
                                                @RequestParam int userPhone,
                                                @RequestParam String password) {
         userService.registerUser(username, email, userPhone, password);
-        return "dryfoods";
+        return "login";
     }
 
 }
